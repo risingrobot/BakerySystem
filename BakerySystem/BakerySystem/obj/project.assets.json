@@ -11801,11 +11801,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Arsalan\\source\\repos\\BakerySystem\\BakerySystem\\BakerySystem.csproj",
+      "projectUniqueName": "C:\\Users\\Arsalan\\Documents\\GitHub\\BakerySystem\\BakerySystem\\BakerySystem\\BakerySystem.csproj",
       "projectName": "BakerySystem",
-      "projectPath": "C:\\Users\\Arsalan\\source\\repos\\BakerySystem\\BakerySystem\\BakerySystem.csproj",
+      "projectPath": "C:\\Users\\Arsalan\\Documents\\GitHub\\BakerySystem\\BakerySystem\\BakerySystem\\BakerySystem.csproj",
       "packagesPath": "C:\\Users\\Arsalan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Arsalan\\source\\repos\\BakerySystem\\BakerySystem\\obj\\",
+      "outputPath": "C:\\Users\\Arsalan\\Documents\\GitHub\\BakerySystem\\BakerySystem\\BakerySystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
