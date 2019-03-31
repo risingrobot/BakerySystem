@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -141,6 +142,36 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\about-img.png" />
+    <Content Include="Images\b1.jpg" />
+    <Content Include="Images\b2.jpg" />
+    <Content Include="Images\b3.jpg" />
+    <Content Include="Images\b4.jpg" />
+    <Content Include="Images\banner-bg.jpg" />
+    <Content Include="Images\c1.jpg" />
+    <Content Include="Images\c2.jpg" />
+    <Content Include="Images\c3.jpg" />
+    <Content Include="Images\c4.jpg" />
+    <Content Include="Images\call-action-bg.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\p3.jpg" />
+    <Content Include="Images\pattern-bg.jpg" />
+    <Content Include="Images\play-btn.png" />
+    <Content Include="Images\play.png" />
+    <Content Include="Images\r1.png" />
+    <Content Include="Images\review-bg.jpg" />
+    <Content Include="Images\screen-bg1.png" />
+    <Content Include="Images\t1.jpg" />
+    <Content Include="Images\t1.png" />
+    <Content Include="Images\t2.jpg" />
+    <Content Include="Images\t2.png" />
+    <Content Include="Images\t3.jpg" />
+    <Content Include="Images\t3.png" />
+    <Content Include="Images\t4.jpg" />
+    <Content Include="Images\top-banner.jpg" />
+    <Content Include="Images\ui-icons_444444_256x240.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\video-bg.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -168,6 +199,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
