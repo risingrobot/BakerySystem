@@ -30,3 +30,4 @@ C:\Users\Arsalan\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Deb
 C:\Users\Arsalan\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\netcoreapp2.1\BakerySystem.dll
 C:\Users\Arsalan\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\netcoreapp2.1\BakerySystem.pdb
 C:\Users\Arsalan\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\netcoreapp2.1\BakerySystem.csproj.CopyComplete
+C:\Users\Arsalan\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\netcoreapp2.1\Razor\Views\Home\Login.g.cshtml.cs
