@@ -19,7 +19,7 @@ namespace BakerySystem.Controllers
         [HttpPost]
         public ActionResult Autherize(BakerySystem.Models.SYS_USR_INFO userModel)
         {
-            using (ModelBMS db = new ModelBMS())
+            using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
                 var userDetails = db.SYS_USR_INFO.Where(x => x.UserName == userModel.UserName && x.UserPassowrd == userModel.UserPassowrd).FirstOrDefault();
                 if (userDetails == null)
@@ -31,7 +31,7 @@ namespace BakerySystem.Controllers
                 {
                     Session["userID"] = userDetails.UserId;
                     Session["userName"] = userDetails.UserName;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Items");
                 }
             }
         }

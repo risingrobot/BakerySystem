@@ -20,5 +20,11 @@
         <h3>Username : @Session["userName"].ToString()</h3>
         <a href="@Url.Action("LogOut","Login")">LogOut</a>
     </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts",required:false
+    )
 </body>
 </html>

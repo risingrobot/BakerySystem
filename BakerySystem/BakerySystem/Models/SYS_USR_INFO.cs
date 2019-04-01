@@ -11,11 +11,13 @@ namespace BakerySystem.Models
 {
     using System;
     using System.Collections.Generic;
+
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class SYS_USR_INFO
     {
+
         public int UserId { get; set; }
         [DisplayName("User Name")]
         [Required(ErrorMessage = "This field is required.")]
@@ -24,11 +26,10 @@ namespace BakerySystem.Models
         [DisplayName("User Password")]
         [Required(ErrorMessage = "This field is required.")]
         public string UserPassowrd { get; set; }
-       
+
         public string MachineIP { get; set; }
         public string OperatingSystem { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
         public string LoginErrorMessage { get; set; }
-
     }
 }

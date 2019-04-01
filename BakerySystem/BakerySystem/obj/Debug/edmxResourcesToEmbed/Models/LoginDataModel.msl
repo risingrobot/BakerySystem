@@ -1,6 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BKRY_MNGT_SYSModelStoreContainer" CdmEntityContainer="ModelBMS">
+  <EntityContainerMapping StorageEntityContainer="BKRY_MNGT_SYSModelStoreContainer" CdmEntityContainer="BKRY_MNGT_SYSEntities">
+    <EntitySetMapping Name="BKRY_ITEMS">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_ITEMS">
+        <MappingFragment StoreEntitySet="BKRY_ITEMS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="add_date" ColumnName="add_date" />
+          <ScalarProperty Name="expiry_dte" ColumnName="expiry_dte" />
+          <ScalarProperty Name="order_num" ColumnName="order_num" />
+          <ScalarProperty Name="publish" ColumnName="publish" />
+          <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SYS_USR_INFO">
       <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.SYS_USR_INFO">
         <MappingFragment StoreEntitySet="SYS_USR_INFO">

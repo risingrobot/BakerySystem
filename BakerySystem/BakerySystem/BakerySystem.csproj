@@ -137,19 +137,23 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+    <Compile Include="Models\BKRY_ITEMS.cs">
+      <DependentUpon>LoginDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
+    <Compile Include="Models\LoginDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LoginDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -157,7 +161,7 @@
       <DependentUpon>LoginDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SYS_USR_INFO.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>LoginDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -204,15 +208,15 @@
     <Content Include="Images\ui-icons_444444_256x240.png" />
     <Content Include="Images\user.png" />
     <Content Include="Images\video-bg.jpg" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\LoginDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LoginDataModel.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <LastGenOutput>LoginDataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\LoginDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LoginDataModel.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <LastGenOutput>LoginDataModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -247,6 +251,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\Items\AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DB\" />

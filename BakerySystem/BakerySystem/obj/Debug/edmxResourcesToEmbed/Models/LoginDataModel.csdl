@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BKRY_MNGT_SYSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BKRY_ITEMS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="image" Type="Binary" MaxLength="50" FixedLength="true" />
+    <Property Name="add_date" Type="DateTime" Precision="3" />
+    <Property Name="expiry_dte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="order_num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="publish" Type="Boolean" />
+    <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="SYS_USR_INFO">
     <Key>
       <PropertyRef Name="UserId" />
@@ -11,7 +25,8 @@
     <Property Name="OperatingSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LoginTime" Type="DateTime" Precision="3" />
   </EntityType>
-  <EntityContainer Name="ModelBMS" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="BKRY_MNGT_SYSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BKRY_ITEMS" EntityType="Self.BKRY_ITEMS" />
     <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" />
   </EntityContainer>
 </Schema>
