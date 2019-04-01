@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BakerySystem.Models;
 
 namespace BakerySystem.Controllers
 {
@@ -14,76 +15,34 @@ namespace BakerySystem.Controllers
             return View();
         }
 
-        // GET: Login/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
-        // GET: Login/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Login/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Autherize(BakerySystem.Models.SYS_USR_INFO userModel)
         {
-            try
+            using (ModelBMS db = new ModelBMS())
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                var userDetails = db.SYS_USR_INFO.Where(x => x.UserName == userModel.UserName && x.UserPassowrd == userModel.UserPassowrd).FirstOrDefault();
+                if (userDetails == null)
+                {
+                    userModel.LoginErrorMessage = "Wrong username or password.";
+                    return View("Index", userModel);
+                }
+                else
+                {
+                    Session["userID"] = userDetails.UserId;
+                    Session["userName"] = userDetails.UserName;
+                    return RedirectToAction("Index", "Home");
+                }
             }
         }
 
-        // GET: Login/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult LogOut()
         {
-            return View();
+            int userId = (int)Session["userID"];
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
 
-        // POST: Login/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Login/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Login/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
+

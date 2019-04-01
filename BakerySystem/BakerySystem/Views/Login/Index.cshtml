@@ -1,4 +1,4 @@
-﻿@model MVCLogin.Models.User
+﻿@model BakerySystem.Models.SYS_USR_INFO
 @{
     Layout = null;
 }
@@ -29,7 +29,7 @@
             <table>
                 <tr>
                     <td></td>
-                    <td style="text-decoration:underline">App Name</td>
+                    <td style="text-decoration:underline">BMS Login </td>
                 </tr>
                 <tr>
                     <td>
@@ -45,12 +45,12 @@
                 </tr>
 
                 <tr>
-                    <td>@Html.LabelFor(model => model.Password)</td>
-                    <td>@Html.EditorFor(model => model.Password)</td>
+                    <td>@Html.LabelFor(model => model.UserPassowrd)</td>
+                    <td>@Html.EditorFor(model => model.UserPassowrd)</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td>@Html.ValidationMessageFor(model => model.Password)</td>
+                    <td>@Html.ValidationMessageFor(model => model.UserPassowrd)</td>
                 </tr>
                 <tr>
                     <td colspan="2">
