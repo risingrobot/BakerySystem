@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BKRY_MNGT_SYSModelStoreContainer" CdmEntityContainer="ModelBMS">
+    <EntitySetMapping Name="SYS_USR_INFO">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.SYS_USR_INFO">
+        <MappingFragment StoreEntitySet="SYS_USR_INFO">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassowrd" ColumnName="UserPassowrd" />
+          <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
+          <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
+          <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
