@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BKRY_MNGT_SYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BKRY_MNGT_SYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BKRY_ITEMS">
           <Key>
             <PropertyRef Name="Id" />
@@ -18,6 +18,7 @@
           <Property Name="order_num" Type="nvarchar" MaxLength="50" />
           <Property Name="publish" Type="bit" />
           <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
+          <Property Name="img_src" Type="binary" MaxLength="50" />
         </EntityType>
         <EntityType Name="SYS_USR_INFO">
           <Key>
@@ -34,8 +35,7 @@
           <EntitySet Name="BKRY_ITEMS" EntityType="Self.BKRY_ITEMS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BKRY_MNGT_SYSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -52,6 +52,7 @@
           <Property Name="order_num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="publish" Type="Boolean" />
           <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="img_src" Type="Binary" MaxLength="50" FixedLength="true" />
         </EntityType>
         <EntityType Name="SYS_USR_INFO">
           <Key>
@@ -77,6 +78,7 @@
           <EntitySetMapping Name="BKRY_ITEMS">
             <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_ITEMS">
               <MappingFragment StoreEntitySet="BKRY_ITEMS">
+                <ScalarProperty Name="img_src" ColumnName="img_src" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="price" ColumnName="price" />

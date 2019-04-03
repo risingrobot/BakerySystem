@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using BakerySystem.Models;
 using System.Data.Entity;
+using System.IO;
+using System.Drawing;
 
 namespace BakerySystem.Controllers
 {
@@ -40,8 +42,30 @@ namespace BakerySystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddOrEdit(BKRY_ITEMS bkt)
+        public ActionResult AddOrEdit(BKRY_ITEMS bkt, HttpPostedFileBase file)
         {
+
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                    using (Image image = Image.FromFile(path))
+                    {
+                        using (MemoryStream m = new MemoryStream())
+                        {
+                           // image.Save(m, image.RawFormat);
+                            byte[] imageBytes = m.ToArray();
+
+                            // Convert byte[] to Base64 String
+                            string base64String = Convert.ToBase64String(imageBytes);
+                            bkt.order_num = base64String;
+                           // return base64String;
+                        }
+                    }
+                    //  file.SaveAs(path);
+                }
+            
             using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
                 if (bkt.Id == 0)

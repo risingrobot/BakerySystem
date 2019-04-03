@@ -13,6 +13,7 @@
     <Property Name="order_num" Type="nvarchar" MaxLength="50" />
     <Property Name="publish" Type="bit" />
     <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
+    <Property Name="img_src" Type="binary" MaxLength="50" />
   </EntityType>
   <EntityType Name="SYS_USR_INFO">
     <Key>

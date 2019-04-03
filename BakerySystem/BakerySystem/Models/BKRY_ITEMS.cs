@@ -25,5 +25,6 @@ namespace BakerySystem.Models
         public string order_num { get; set; }
         public Nullable<bool> publish { get; set; }
         public string insert_by { get; set; }
+        public byte[] img_src { get; set; }
     }
 }
