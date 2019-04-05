@@ -22,9 +22,10 @@ namespace BakerySystem.Models
         public Nullable<System.DateTime> add_date { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public string expiry_dte { get; set; }
+        public string category { get; set; }
         public string order_num { get; set; }
         public Nullable<bool> publish { get; set; }
-        public string insert_by { get; set; }
+        public string insert_by { get; set; }        
         public byte[] img_src { get; set; }
     }
 }
