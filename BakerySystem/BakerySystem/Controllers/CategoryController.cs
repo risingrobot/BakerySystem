@@ -22,6 +22,10 @@ namespace BakerySystem.Controllers
             using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
                 List<BKRY_CATEGORY> bkryList = db.BKRY_CATEGORY.ToList<BKRY_CATEGORY>();
+                foreach (BKRY_CATEGORY item in bkryList)
+                {
+                    item.image = null;
+                }
                 return Json(new { data = bkryList }, JsonRequestBehavior.AllowGet);
             }
 
