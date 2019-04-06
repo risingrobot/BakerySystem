@@ -11,7 +11,7 @@
             var text = '';
             for (var i = 0; i < response.data.length; i++) {
 
-                text += '<div class="col-lg-3 col-md-6"><div class="single-cat-item"><div class="thumb"> <img style="width:100px;height:100px;" class="img-fluid" src="' + '/Home/getImage/' + response.data[i].Id+'" alt=""></div><a href="#"><h4>' + response.data[i].name+'</h4></a></div></div>';
+                text += '<div class="col-lg-3 col-md-6"><div class="single-cat-item"><div class="thumb"> <img style="width:100px;height:100px;" class="img-fluid" src="' + '/Home/getImage/' + response.data[i].Id + '" alt=""></div><a href="/Items/ShowItems/' + response.data[i].Id + '"><h4>' + response.data[i].name + '</h4></a></div></div>';
             }
             $('#Category').html(text);
         });
@@ -56,7 +56,7 @@
             </div>
             <div id="Category" class="row">
             </div>
-            <a class="primary-btn mx-auto mt-80" href="#">View Full Menu</a>
+            <a class="primary-btn mx-auto mt-80" href="/Items/ShowItems/0">View Full Menu</a>
         </div>
     </section>
 

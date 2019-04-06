@@ -14,7 +14,7 @@ namespace BakerySystem.Controllers
     {
         // GET: Items
         public ActionResult Index()
-        {            
+        {
             return View();
         }
         public ActionResult GetData()
@@ -38,7 +38,7 @@ namespace BakerySystem.Controllers
             using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
                 bkryList = db.BKRY_CATEGORY.ToList<BKRY_CATEGORY>();
-               
+
             }
             ViewBag.Category = bkryList;
             if (id == 0)
@@ -64,7 +64,7 @@ namespace BakerySystem.Controllers
                 bkt.image = buf;
             }
             bkt.insert_by = Session != null && Session["UserName"] != null ? Session["UserName"].ToString() : "";
-           
+
             using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
                 if (bkt.Id == 0)
@@ -95,6 +95,23 @@ namespace BakerySystem.Controllers
                 return Json(new { success = true, message = "Deleted Successfully" }, JsonRequestBehavior.AllowGet);
             }
         }
+        public ActionResult ShowItems(int id)
+        {
+            ViewBag.CID = id;
+            return View();
+        }
+        public ActionResult GetShowItemsData(int id)
+        {
+            using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+            {
+                List<BKRY_ITEMS> bkryList = id == 0 ? db.BKRY_ITEMS.ToList<BKRY_ITEMS>()  : db.BKRY_ITEMS.Where(x => x.categoryId == id).ToList<BKRY_ITEMS>();                
+                foreach (BKRY_ITEMS item in bkryList)
+                {
+                    item.image = null;
+                }
+                return Json(new { data = bkryList }, JsonRequestBehavior.AllowGet);
+            }
 
+        }
     }
 }
