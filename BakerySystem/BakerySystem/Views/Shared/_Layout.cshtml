@@ -9,30 +9,85 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>    
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/jquery-notify.js"></script>
+
+
+    @*-------------*@
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+
+
 </head>
+@*@if (Session["userID"] != null)
+    {
+        <li>@Html.ActionLink("Category", "Index", "Category")</li>
+        <li>@Html.ActionLink("Items", "Index", "Items")</li>
+    }
+    <li>bucket counter</li>
+    <li>@Html.ActionLink("Checkout", "Index", "Checkout")</li>*@
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <img src="~/Images/logo.png">
-                @Html.ActionLink("Bakery", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">                    
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>                   
-                </ul>
-            </div>
-        </div>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler-icon" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only"> </span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+        </button>
     </div>
-    <div class="container body-content">    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <img src="~/Images/logo.png">
+        <br>
+        @if (Session["userid"] != null)
+        {
+            @Session["userName"].ToString();
+        }
+        <br>
+        <ul class="nav navbar-nav">
+            <li><a href="/Home/Index">Home</a></li>
+        </ul>
+        @if (Session["userID"] != null)
+        {
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/Category/Index">Category</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/Items/Index">Items</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="@Url.Action("LogOut","Login")">LogOut</a></li>
+            </ul>          
+        }
+        else
+        {
+            <ul class="nav navbar-nav navbar-right"><li><a href="/Login/Index">Admin Login</a></li></ul>
+        }
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Bakery System</p> <ul><li style="float:right">@Html.ActionLink("Admin Login", "Index", "Login")</li></ul>
+            <p>&copy; @DateTime.Now.Year - Bakery System</p>
         </footer>
     </div>
 </body>

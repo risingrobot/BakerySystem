@@ -30,7 +30,7 @@ namespace BakerySystem.Controllers
                 else
                 {
                     Session["userID"] = userDetails.UserId;
-                    Session["userName"] = userDetails.UserName;
+                    Session["userName"] = userDetails.UserName;                    
                     return RedirectToAction("Index", "Items");
                 }
             }
@@ -40,7 +40,7 @@ namespace BakerySystem.Controllers
         {
             int userId = (int)Session["userID"];
             Session.Abandon();
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "Home");
         }
 
     }

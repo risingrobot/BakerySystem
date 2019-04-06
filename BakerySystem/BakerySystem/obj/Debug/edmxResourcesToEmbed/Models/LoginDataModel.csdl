@@ -14,6 +14,7 @@
     <Property Name="publish" Type="Boolean" />
     <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="img_src" Type="Binary" MaxLength="50" FixedLength="true" />
+    <Property Name="CategoryId" Type="Int64" Nullable="true" />
   </EntityType>
   <EntityType Name="SYS_USR_INFO">
     <Key>
@@ -25,9 +26,22 @@
     <Property Name="MachineIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="OperatingSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LoginTime" Type="DateTime" Precision="3" />
+    <Property Name="LoginErrorMessage" Type="String" Nullable="true" />
   </EntityType>
   <EntityContainer Name="BKRY_MNGT_SYSEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BKRY_ITEMS" EntityType="Self.BKRY_ITEMS" />
     <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" />
+    <EntitySet Name="BKRY_CATEGORY" EntityType="BKRY_MNGT_SYSModel.BKRY_CATEGORY" />
   </EntityContainer>
+  <EntityType Name="BKRY_CATEGORY">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" />
+    <Property Name="image" Type="Binary" Nullable="true" />
+    <Property Name="add_date" Type="DateTime" Nullable="false" />
+    <Property Name="publish" Type="Boolean" Nullable="false" />
+    <Property Name="insert_by" Type="String" Nullable="false" />
+  </EntityType>
 </Schema>

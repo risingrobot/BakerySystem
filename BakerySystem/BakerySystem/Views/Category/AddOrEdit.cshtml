@@ -1,0 +1,69 @@
+﻿@model BakerySystem.Models.BKRY_ITEMS
+@{
+    Layout = null;
+}
+
+<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+       $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>
+
+@using (Html.BeginForm("AddOrEdit", "Items", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model=>model.Id)
+    <div class="form-group">
+        @Html.LabelFor(model=>model.name, new {@class="control-label" })
+        @Html.EditorFor(model=>model.name,new { htmlAttributes = new { @class="form-control"} })
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.expiry_dte, new { @class = "control-label" })
+        @*@Html.EditorFor(model => model.expiry_dte, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.Kendo().*@
+
+        @Html.TextBoxFor(model => model.expiry_dte, new { @class = "form-control datepicker", placeholder = "Enter Expiry Date." })
+
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.price, new { @class = "control-label" })
+        <div class="input-group">
+            <span class="input-group-addon">$</span>
+            @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.image, new { @class = "control-label" })
+        @*@Html.EditorFor(model => model.image, new { htmlAttributes = new { @class = "form-control" } })*@
+        <input type="file" name="file" id="file" />
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.add_date, new { @class = "control-label" })
+        @*@Html.EditorFor(model => model.add_date, new { htmlAttributes = new { @class = "form-control" } })*@
+        @Html.TextBoxFor(model => model.add_date, new { @class = "form-control datepicker", placeholder = "Enter Add Date." })
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.publish, new { @class = "control-label" })
+        @Html.EditorFor(model => model.publish, new { htmlAttributes = new { @class = "form-control" } })
+
+    </div>
+    <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-primary" />
+        <input type="reset" value="reset" class="btn btn-primary" />
+ 
+    </div>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+  
+}

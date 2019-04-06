@@ -27,5 +27,6 @@ namespace BakerySystem.Models
     
         public virtual DbSet<BKRY_ITEMS> BKRY_ITEMS { get; set; }
         public virtual DbSet<SYS_USR_INFO> SYS_USR_INFO { get; set; }
+        public virtual DbSet<BKRY_CATEGORY> BKRY_CATEGORY { get; set; }
     }
 }
