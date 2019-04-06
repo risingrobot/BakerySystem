@@ -31,6 +31,8 @@ namespace BakerySystem.Controllers
                 return File(obj.image, "image/jpeg"); // Might need to adjust the content type based on your actual image type            
             
         }
+        [HttpGet]
+        [AllowAnonymous]
         public ActionResult getImage2(int id)
         {
             BKRY_ITEMS obj = null;

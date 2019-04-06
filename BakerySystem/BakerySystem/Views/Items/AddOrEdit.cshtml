@@ -5,23 +5,23 @@
 
 <script type="text/javascript">
     $(function () { // will trigger when the document is ready
-       $('.datepicker').datepicker(); //Initialise any date pickers
+        $('.datepicker').datepicker(); //Initialise any date pickers
     });
 </script>
 
 @using (Html.BeginForm("AddOrEdit", "Items", FormMethod.Post, new { onsubmit = "return SubmitForm(this)", enctype = "multipart/form-data" }))
 {
-    @Html.HiddenFor(model=>model.Id)
+    @Html.HiddenFor(model => model.Id)
     <div class="form-group">
-        @Html.LabelFor(model=>model.name, new {@class="control-label" })
-        @Html.EditorFor(model=>model.name,new { htmlAttributes = new { @class="form-control"} })
+        @Html.LabelFor(model => model.name, new { @class = "control-label" })
+        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
 
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.expiry_dte, new { @class = "control-label" })
         @*@Html.EditorFor(model => model.expiry_dte, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.Kendo().*@
+            @Html.Kendo().*@
 
         @Html.TextBoxFor(model => model.expiry_dte, new { @class = "form-control datepicker", placeholder = "Enter Expiry Date." })
 
@@ -34,7 +34,7 @@
             <span class="input-group-addon">$</span>
             @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
         </div>
-        </div>
+    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.image, new { @class = "control-label" })
@@ -56,9 +56,14 @@
 
     </div>
     <div class="form-group">
+        @Html.LabelFor(model => model.categoryId, new { @class = "control-label" })
+        @Html.DropDownListFor(model => model.categoryId, new SelectList(ViewBag.Category, "Id", "name") ,new { htmlAttributes = new { @class = "form-control" } })
+
+    </div>
+    <div class="form-group">
         <input type="submit" value="submit" class="btn btn-primary" />
         <input type="reset" value="reset" class="btn btn-primary" />
- 
-    </div> 
-  
+
+    </div>
+
 }

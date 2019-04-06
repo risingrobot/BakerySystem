@@ -14,7 +14,7 @@ namespace BakerySystem.Controllers
     {
         // GET: Items
         public ActionResult Index()
-        {
+        {            
             return View();
         }
         public ActionResult GetData()
@@ -22,6 +22,10 @@ namespace BakerySystem.Controllers
             using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
                 List<BKRY_ITEMS> bkryList = db.BKRY_ITEMS.ToList<BKRY_ITEMS>();
+                foreach (BKRY_ITEMS item in bkryList)
+                {
+                    item.image = null;
+                }
                 return Json(new { data = bkryList }, JsonRequestBehavior.AllowGet);
 
             }
@@ -30,6 +34,13 @@ namespace BakerySystem.Controllers
         [HttpGet]
         public ActionResult AddOrEdit(int id = 0)
         {
+            List<BKRY_CATEGORY> bkryList = null;
+            using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+            {
+                bkryList = db.BKRY_CATEGORY.ToList<BKRY_CATEGORY>();
+               
+            }
+            ViewBag.Category = bkryList;
             if (id == 0)
                 return View(new BKRY_ITEMS());
             else
@@ -45,27 +56,15 @@ namespace BakerySystem.Controllers
         public ActionResult AddOrEdit(BKRY_ITEMS bkt, HttpPostedFileBase file)
         {
 
-
-                if (file != null && file.ContentLength > 0)
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                    using (Image image = Image.FromFile(path))
-                    {
-                        using (MemoryStream m = new MemoryStream())
-                        {
-                           // image.Save(m, image.RawFormat);
-                            byte[] imageBytes = m.ToArray();
-
-                            // Convert byte[] to Base64 String
-                            string base64String = Convert.ToBase64String(imageBytes);
-                            bkt.order_num = base64String;
-                           // return base64String;
-                        }
-                    }
-                    //  file.SaveAs(path);
-                }
-            
+            byte[] buf = null;
+            if (file != null && file.ContentLength > 0)
+            {
+                buf = new byte[file.ContentLength];
+                file.InputStream.Read(buf, 0, buf.Length);
+                bkt.image = buf;
+            }
+            bkt.insert_by = Session != null && Session["UserName"] != null ? Session["UserName"].ToString() : "";
+           
             using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
                 if (bkt.Id == 0)
