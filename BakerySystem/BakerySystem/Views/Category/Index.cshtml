@@ -5,13 +5,11 @@
 
 <h2>Bakery Admin Panel</h2>
 
-<a class="btn btn-success" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","Items")')"><i class="fa fa-plus"></i> Add New</a>
-<table id="itemsTable" class="table table-striped table-bordered" style="width:100%">
+<a class="btn btn-success" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","Items")')"><i class="fa fa-plus"></i> Add New Categories</a>
+<table id="categoryTable" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th>Item Name</th>
-            <th>Item Price</th>
-            <th>Size / Quantity</th>
+            <th>Category Name</th>           
             <th>Image Name</th>
             <th>Expiry Date</th>
             <th>Editing</th>
@@ -27,16 +25,14 @@
    <script>
         var Popup, dataTable;
         $(document).ready(function () {
-            dataTable =  $("#itemsTable").DataTable({
+            dataTable = $("#categoryTable").DataTable({
                 "ajax": {
-                    "url": "/Items/GetData",
+                    "url": "/Category/GetData",
                     "type": "GET",
                     "datatype": "json"
                 },
                 "columns": [
                     { "data": "name" },
-                    { "data": "price" },
-                    { "data": "order_num" },
                     { "data": "image" },
                     { "data": "expiry_dte" },
                     {"data":"Id" , "render" : function (data) {
@@ -49,7 +45,6 @@
 
                 ],
                 "language": {
-
                     "emptyTable" : "No data found, Please click on <b>Add New</b> Button"
                 }
             });
