@@ -11,7 +11,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" />
-          <Property Name="image" Type="binary" MaxLength="50" />
+          <Property Name="image" Type="varbinary(max)" />
           <Property Name="add_date" Type="datetime" />
           <Property Name="publish" Type="bit" />
           <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
@@ -92,7 +92,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="image" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="add_date" Type="DateTime" Precision="3" />
           <Property Name="publish" Type="Boolean" />
           <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

@@ -43,36 +43,38 @@ namespace BakerySystem.Controllers
         [HttpPost]
         public ActionResult AddOrEdit(BKRY_CATEGORY bkt, HttpPostedFileBase file)
         {
-            if (file != null && file.ContentLength > 0)
+            try
             {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                using (Image image = Image.FromFile(path))
+                byte[] buf = null;
+                if (file != null && file.ContentLength > 0)
                 {
-                    using (MemoryStream m = new MemoryStream())
+                    buf = new byte[file.ContentLength];
+                    file.InputStream.Read(buf, 0, buf.Length);
+                    bkt.image = buf;
+                }
+                bkt.insert_by = Session != null && Session["UserName"] != null ? Session["UserName"].ToString() : "";
+                bkt.add_date = DateTime.Now;
+                using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+                {
+                    if (bkt.Id == 0)
                     {
-                        byte[] imageBytes = m.ToArray();                       
-                        bkt.image = imageBytes;                     
+                        db.BKRY_CATEGORY.Add(bkt);
+                        db.SaveChanges();
+                        return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
                     }
-                }               
-            }
-            using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
-            {
-                if (bkt.Id == 0)
-                {
-                    db.BKRY_CATEGORY.Add(bkt);
-                    db.SaveChanges();
-                    return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
+                    else
+                    {
+                        db.Entry(bkt).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return Json(new { success = true, message = "Updated Successfully" }, JsonRequestBehavior.AllowGet);
+                    }
                 }
-                else
-                {
-                    db.Entry(bkt).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return Json(new { success = true, message = "Updated Successfully" }, JsonRequestBehavior.AllowGet);
-                }
+
             }
-
-
+            catch (Exception ex) {
+                Console.WriteLine(ex.ToString());
+            }
+            return null;
         }
 
         [HttpPost]

@@ -37,9 +37,9 @@
                 },
                 "columns": [
                     { "data": "name" },
-                    { "data": "image" },
+                    { "data": "Id", "render": function (data) { return '<img style="width:70px;height:70px;" src="' + "/Home/getImage/" + data + '" />'; } },
                     { "data": "add_date" },
-                    { "data": "publish" },
+                    { "data": "publish", "render": function (data) { return data == true ? 'Yes' : 'No' } },
                     { "data": "insert_by" },
                     {"data":"Id" , "render" : function (data) {
                         return "<a class='btn btn-default btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit","Items")/" + data + "')><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete("+data+")><i class='fa fa-trash'></i> Delete</a>";
@@ -51,11 +51,11 @@
 
                 ],
                 "language": {
-                    "emptyTable" : "No data found, Please click on <b>Add New</b> Button"
+                    "emptyTable": "No data found, Please click on <b>Add New</b> Button",
+                    "processing": "<img src='~/Images/Loading.gif'>"
                 }
             });
-        });
-
+        });     
         function PopupForm(url) {
             var formDiv = $('<div/>');
             $.get(url)
