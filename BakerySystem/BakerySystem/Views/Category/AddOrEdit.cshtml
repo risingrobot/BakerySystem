@@ -9,36 +9,25 @@
     });
 </script>
 
-@using (Html.BeginForm("AddOrEdit", "Category", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+@using (Html.BeginForm("AddOrEdit", "Category", FormMethod.Post, new { onsubmit = "return SubmitForm(this)", enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(model => model.Id)
     <div class="form-group">
         @Html.LabelFor(model=>model.name, new {@class="control-label" })
         @Html.EditorFor(model=>model.name,new { htmlAttributes = new { @class="form-control"} })
-
     </div>
-
     <div class="form-group">
-        @Html.LabelFor(model => model.image, new { @class = "control-label" })
-        @*@Html.EditorFor(model => model.image, new { htmlAttributes = new { @class = "form-control" } })*@
+        @Html.LabelFor(model => model.image, new { @class = "control-label" })       
         <input type="file" name="file" id="file" />
-
+        
     </div>
-
     <div class="form-group">
         @Html.LabelFor(model => model.publish, new { @class = "control-label" })
         @Html.EditorFor(model => model.publish, new { htmlAttributes = new { @class = "form-control" } })
-
     </div>
     <div class="form-group">
         <input type="submit" value="submit" class="btn btn-primary" />
-        <input type="reset" value="reset" class="btn btn-primary" />
- 
+        <input type="reset" value="reset" class="btn btn-primary" /> 
     </div>
-    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
   
 }

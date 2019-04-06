@@ -7,7 +7,7 @@
       <Diagram DiagramId="53a0f50e48224d5fbf415d908215f99d" Name="Diagram1">
         <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.BKRY_ITEMS" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.SYS_USR_INFO" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.BKRY_CATEGORY" Width="1.5" PointX="6" PointY="1.25" />
+        <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.BKRY_CATEGORY" Width="1.5" PointX="5" PointY="0.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

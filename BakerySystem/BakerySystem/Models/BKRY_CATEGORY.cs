@@ -14,11 +14,11 @@ namespace BakerySystem.Models
     
     public partial class BKRY_CATEGORY
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string name { get; set; }
         public byte[] image { get; set; }
-        public System.DateTime add_date { get; set; }
-        public bool publish { get; set; }
+        public Nullable<System.DateTime> add_date { get; set; }
+        public Nullable<bool> publish { get; set; }
         public string insert_by { get; set; }
     }
 }

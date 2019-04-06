@@ -1,6 +1,9 @@
 ﻿using BakerySystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,75 +26,64 @@ namespace BakerySystem.Controllers
             }
 
         }
-        // GET: Category/Details/5
-        public ActionResult Details(int id)
+        [HttpGet]
+        public ActionResult AddOrEdit(int id = 0)
         {
-            return View();
+            if (id == 0)
+                return View(new BKRY_CATEGORY());
+            else
+            {
+                using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+                {
+                    return View(db.BKRY_CATEGORY.Where(x => x.Id == id).FirstOrDefault<BKRY_CATEGORY>());
+                }
+            }
         }
 
-        // GET: Category/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Category/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult AddOrEdit(BKRY_CATEGORY bkt, HttpPostedFileBase file)
         {
-            try
+            if (file != null && file.ContentLength > 0)
             {
-                // TODO: Add insert logic here
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                using (Image image = Image.FromFile(path))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        byte[] imageBytes = m.ToArray();                       
+                        bkt.image = imageBytes;                     
+                    }
+                }               
+            }
+            using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+            {
+                if (bkt.Id == 0)
+                {
+                    db.BKRY_CATEGORY.Add(bkt);
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    db.Entry(bkt).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Updated Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+
         }
 
-        // GET: Category/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Category/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Category/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Category/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                BKRY_CATEGORY emp = db.BKRY_CATEGORY.Where(x => x.Id == id).FirstOrDefault<BKRY_CATEGORY>();
+                db.BKRY_CATEGORY.Remove(emp);
+                db.SaveChanges();
+                return Json(new { success = true, message = "Deleted Successfully" }, JsonRequestBehavior.AllowGet);
             }
         }
     }

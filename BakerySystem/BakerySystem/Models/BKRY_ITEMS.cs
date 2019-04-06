@@ -24,6 +24,6 @@ namespace BakerySystem.Models
         public Nullable<bool> publish { get; set; }
         public string insert_by { get; set; }
         public byte[] img_src { get; set; }
-        public Nullable<long> CategoryId { get; set; }
+        public Nullable<long> categoryId { get; set; }
     }
 }

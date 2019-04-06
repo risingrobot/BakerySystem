@@ -28,15 +28,18 @@
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 
-
+    <style>
+        .ui-dialog .ui-dialog-content {
+            border: 0;
+            padding: .5em 1em;
+            background: #28a745;
+            overflow: auto;
+            zoom: 1;
+        }
+        }
+    </style>
 </head>
-@*@if (Session["userID"] != null)
-    {
-        <li>@Html.ActionLink("Category", "Index", "Category")</li>
-        <li>@Html.ActionLink("Items", "Index", "Items")</li>
-    }
-    <li>bucket counter</li>
-    <li>@Html.ActionLink("Checkout", "Index", "Checkout")</li>*@
+
 <body>
     <nav class="navbar navbar-default">
   <div class="container-fluid">

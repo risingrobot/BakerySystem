@@ -4,6 +4,7 @@
     <EntitySetMapping Name="BKRY_ITEMS">
       <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_ITEMS">
         <MappingFragment StoreEntitySet="BKRY_ITEMS">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
           <ScalarProperty Name="img_src" ColumnName="img_src" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -20,12 +21,25 @@
     <EntitySetMapping Name="SYS_USR_INFO">
       <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.SYS_USR_INFO">
         <MappingFragment StoreEntitySet="SYS_USR_INFO">
+          <ScalarProperty Name="LoginErrorMessage" ColumnName="LoginErrorMessage" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserPassowrd" ColumnName="UserPassowrd" />
           <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
           <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
           <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BKRY_CATEGORY">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_CATEGORY">
+        <MappingFragment StoreEntitySet="BKRY_CATEGORY">
+          <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+          <ScalarProperty Name="publish" ColumnName="publish" />
+          <ScalarProperty Name="add_date" ColumnName="add_date" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

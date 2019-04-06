@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="BKRY_MNGT_SYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BKRY_CATEGORY">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="image" Type="binary" MaxLength="50" />
+          <Property Name="add_date" Type="datetime" />
+          <Property Name="publish" Type="bit" />
+          <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="BKRY_ITEMS">
           <Key>
             <PropertyRef Name="Id" />
@@ -19,6 +30,7 @@
           <Property Name="publish" Type="bit" />
           <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
           <Property Name="img_src" Type="binary" MaxLength="50" />
+          <Property Name="categoryId" Type="bigint" />
         </EntityType>
         <EntityType Name="SYS_USR_INFO">
           <Key>
@@ -30,8 +42,10 @@
           <Property Name="MachineIP" Type="nvarchar" MaxLength="50" />
           <Property Name="OperatingSystem" Type="nvarchar" MaxLength="50" />
           <Property Name="LoginTime" Type="datetime" />
+          <Property Name="LoginErrorMessage" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityContainer Name="BKRY_MNGT_SYSModelStoreContainer">
+          <EntitySet Name="BKRY_CATEGORY" EntityType="Self.BKRY_CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BKRY_ITEMS" EntityType="Self.BKRY_ITEMS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -53,7 +67,7 @@
           <Property Name="publish" Type="Boolean" />
           <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="img_src" Type="Binary" MaxLength="50" FixedLength="true" />
-          <Property Name="CategoryId" Type="Int64" Nullable="true" />
+          <Property Name="categoryId" Type="Int64" />
         </EntityType>
         <EntityType Name="SYS_USR_INFO">
           <Key>
@@ -65,7 +79,7 @@
           <Property Name="MachineIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OperatingSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LoginTime" Type="DateTime" Precision="3" />
-          <Property Name="LoginErrorMessage" Type="String" Nullable="true" />
+          <Property Name="LoginErrorMessage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="BKRY_MNGT_SYSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BKRY_ITEMS" EntityType="Self.BKRY_ITEMS" />
@@ -76,12 +90,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" />
-          <Property Name="image" Type="Binary" Nullable="true" />
-          <Property Name="add_date" Type="DateTime" Nullable="false" />
-          <Property Name="publish" Type="Boolean" Nullable="false" />
-          <Property Name="insert_by" Type="String" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="add_date" Type="DateTime" Precision="3" />
+          <Property Name="publish" Type="Boolean" />
+          <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -92,6 +106,7 @@
           <EntitySetMapping Name="BKRY_ITEMS">
             <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_ITEMS">
               <MappingFragment StoreEntitySet="BKRY_ITEMS">
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
                 <ScalarProperty Name="img_src" ColumnName="img_src" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -108,12 +123,25 @@
           <EntitySetMapping Name="SYS_USR_INFO">
             <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.SYS_USR_INFO">
               <MappingFragment StoreEntitySet="SYS_USR_INFO">
+                <ScalarProperty Name="LoginErrorMessage" ColumnName="LoginErrorMessage" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserPassowrd" ColumnName="UserPassowrd" />
                 <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
                 <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
                 <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BKRY_CATEGORY">
+            <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_CATEGORY">
+              <MappingFragment StoreEntitySet="BKRY_CATEGORY">
+                <ScalarProperty Name="insert_by" ColumnName="insert_by" />
+                <ScalarProperty Name="publish" ColumnName="publish" />
+                <ScalarProperty Name="add_date" ColumnName="add_date" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
