@@ -28,7 +28,7 @@ namespace BakerySystem.Controllers
             {
                 return null;
             }
-                return File(obj.image, "image/jpg"); // Might need to adjust the content type based on your actual image type            
+                return File(obj.image, "image/jpeg"); // Might need to adjust the content type based on your actual image type            
             
         }
         public ActionResult getImage2(int id)
