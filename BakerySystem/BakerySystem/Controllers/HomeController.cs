@@ -44,6 +44,10 @@ namespace BakerySystem.Controllers
             return File(obj.image, "image/jpeg"); // Might need to adjust the content type based on your actual image type            
 
         }
-    
+        public ActionResult ClearMessage()
+        {
+            Session["Message"] = null;
+            return null;
+        }
     }
 }

@@ -8,6 +8,9 @@
         <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.BKRY_ITEMS" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.SYS_USR_INFO" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.BKRY_CATEGORY" Width="1.5" PointX="5" PointY="0.875" />
+        <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.BKRY_ORDER" Width="1.5" PointX="3.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.LoginDetail" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.BKRY_DELIVERY" Width="1.5" PointX="6.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

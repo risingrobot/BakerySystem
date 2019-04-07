@@ -44,5 +44,45 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="BKRY_ORDER">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_ORDER">
+        <MappingFragment StoreEntitySet="BKRY_ORDER">
+          <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+          <ScalarProperty Name="inserted_dt" ColumnName="inserted_dt" />
+          <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
+          <ScalarProperty Name="postCode" ColumnName="postCode" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="personname" ColumnName="personname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginDetails">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.LoginDetail">
+        <MappingFragment StoreEntitySet="LoginDetails">
+          <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+          <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
+          <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
+          <ScalarProperty Name="UserPassowrd" ColumnName="UserPassowrd" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BKRY_DELIVERY">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_DELIVERY">
+        <MappingFragment StoreEntitySet="BKRY_DELIVERY">
+          <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+          <ScalarProperty Name="inserted_dt" ColumnName="inserted_dt" />
+          <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

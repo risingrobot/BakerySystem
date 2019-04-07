@@ -1,0 +1,90 @@
+﻿@model System.Collections.Generic.List<BakerySystem.Models.BKRY_ITEMS>
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;       
+    }
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+        input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+    /* Set a style for the submit button */
+    .registerbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+
+</style>
+<script>
+    function OnComplete(response)
+    {
+        alert(response);
+    }
+    </script>
+<div id="details">
+    @using (Ajax.BeginForm("CreateOrder", "Checkout", new AjaxOptions { OnSuccess = "OnComplete" }))
+    {
+        <div class="container">
+            <h2> Checkout</h2>
+            <p> Please fill in this form checkout.</p>
+            <hr>
+            <label for="email"> <b> Name</b> </label>
+            <input type="text" placeholder="Enter Name" name="name" required>
+            <label for="email"> <b> Phone</b> </label>
+            <input type="text" placeholder="Enter Phone" name="phone" required>
+            <label for="email"> <b> Email</b> </label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <label for="email"> <b> Address</b> </label>
+            <input type="text" placeholder="Enter Address" name="address" required>
+            <label for="email"> <b> Stree</b> </label>
+            <input type="text" placeholder="Enter street" name="street" required>
+
+            <label for="email"> <b> PostCode</b> </label>
+            <input type="number" placeholder="Enter PostCode" name="postcode" required>
+
+            <hr>
+            <button type="submit" class="registerbtn"> Checkout</button>
+        </div>
+    }
+    </div>
+<div id="ShoppingCart">
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Product</th>
+        </tr>
+        @foreach (BakerySystem.Models.BKRY_ITEMS item in Model)
+        {
+        <tr>
+            <th>@item.name</th>
+            <th>@item.quantity</th>
+            <th><img style="width:70px;height:70px;" src="/Home/getImage2/@item.Id"></th>
+        </tr>
+            }
+    </table>
+</div>

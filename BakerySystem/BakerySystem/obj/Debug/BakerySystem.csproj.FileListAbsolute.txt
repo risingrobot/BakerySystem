@@ -247,3 +247,4 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.pdb
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Newtonsoft.Json.pdb

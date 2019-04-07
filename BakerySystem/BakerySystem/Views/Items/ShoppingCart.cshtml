@@ -65,13 +65,7 @@
         });
     }
     function Checkout() {
-        $.ajax({
-            type: 'POST',
-            url: '/ShowItems/ClearCart',
-            success: function (msg) {
-                Window.location.href = '/Home/Index'
-            }
-        });
+        window.location.href = "/Checkout/Index";
     }
     function Remove(data) {
         $.ajax({

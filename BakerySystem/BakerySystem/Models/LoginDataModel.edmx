@@ -16,6 +16,16 @@
           <Property Name="publish" Type="bit" />
           <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="BKRY_DELIVERY">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="OrderDetails" Type="nvarchar(max)" />
+          <Property Name="inserted_dt" Type="datetime" />
+          <Property Name="Delivered" Type="bit" />
+        </EntityType>
         <EntityType Name="BKRY_ITEMS">
           <Key>
             <PropertyRef Name="Id" />
@@ -33,6 +43,33 @@
           <Property Name="categoryId" Type="bigint" />
           <Property Name="quantity" Type="int" />
         </EntityType>
+        <EntityType Name="BKRY_ORDER">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="personname" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="phone" Type="nvarchar(max)" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="street" Type="nvarchar(max)" />
+          <Property Name="postCode" Type="nvarchar(max)" />
+          <Property Name="OrderDetails" Type="nvarchar(max)" />
+          <Property Name="inserted_dt" Type="datetime" />
+          <Property Name="Delivered" Type="bit" />
+        </EntityType>
+        <EntityType Name="LoginDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserPassowrd" Type="nchar" MaxLength="10" />
+          <Property Name="MachineIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="OperatingSystem" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoginTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="SYS_USR_INFO">
           <Key>
             <PropertyRef Name="UserId" />
@@ -47,7 +84,10 @@
         </EntityType>
         <EntityContainer Name="BKRY_MNGT_SYSModelStoreContainer">
           <EntitySet Name="BKRY_CATEGORY" EntityType="Self.BKRY_CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BKRY_DELIVERY" EntityType="Self.BKRY_DELIVERY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BKRY_ITEMS" EntityType="Self.BKRY_ITEMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BKRY_ORDER" EntityType="Self.BKRY_ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginDetails" EntityType="Self.LoginDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -87,6 +127,9 @@
           <EntitySet Name="BKRY_ITEMS" EntityType="Self.BKRY_ITEMS" />
           <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" />
           <EntitySet Name="BKRY_CATEGORY" EntityType="BKRY_MNGT_SYSModel.BKRY_CATEGORY" />
+          <EntitySet Name="BKRY_ORDER" EntityType="BKRY_MNGT_SYSModel.BKRY_ORDER" />
+          <EntitySet Name="LoginDetails" EntityType="BKRY_MNGT_SYSModel.LoginDetail" />
+          <EntitySet Name="BKRY_DELIVERY" EntityType="BKRY_MNGT_SYSModel.BKRY_DELIVERY" />
         </EntityContainer>
         <EntityType Name="BKRY_CATEGORY">
           <Key>
@@ -98,6 +141,43 @@
           <Property Name="add_date" Type="DateTime" Precision="3" />
           <Property Name="publish" Type="Boolean" />
           <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BKRY_ORDER">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="personname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="inserted_dt" Type="DateTime" Precision="3" />
+          <Property Name="Delivered" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="LoginDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassowrd" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MachineIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperatingSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="BKRY_DELIVERY">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="OrderDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="inserted_dt" Type="DateTime" Precision="3" />
+          <Property Name="Delivered" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -144,6 +224,46 @@
                 <ScalarProperty Name="add_date" ColumnName="add_date" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BKRY_ORDER">
+            <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_ORDER">
+              <MappingFragment StoreEntitySet="BKRY_ORDER">
+                <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+                <ScalarProperty Name="inserted_dt" ColumnName="inserted_dt" />
+                <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
+                <ScalarProperty Name="postCode" ColumnName="postCode" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="personname" ColumnName="personname" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginDetails">
+            <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.LoginDetail">
+              <MappingFragment StoreEntitySet="LoginDetails">
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
+                <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
+                <ScalarProperty Name="UserPassowrd" ColumnName="UserPassowrd" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BKRY_DELIVERY">
+            <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_DELIVERY">
+              <MappingFragment StoreEntitySet="BKRY_DELIVERY">
+                <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+                <ScalarProperty Name="inserted_dt" ColumnName="inserted_dt" />
+                <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
