@@ -30,7 +30,15 @@ namespace BakerySystem.Controllers
                 else
                 {
                     Session["userID"] = userDetails.UserId;
-                    Session["userName"] = userDetails.UserName;                    
+                    Session["userName"] = userDetails.UserName;
+                    LoginDetail ld = new LoginDetail();
+                    ld.UserId = userDetails.UserId;
+                    ld.UserName = userDetails.UserName;
+                    ld.OperatingSystem = userDetails.OperatingSystem;
+                    ld.MachineIP = userDetails.MachineIP;
+                    ld.UserPassowrd = userDetails.UserPassowrd;
+                    db.LoginDetails.Add(ld);
+                    db.SaveChanges();
                     return RedirectToAction("Index", "Items");
                 }
             }
