@@ -142,6 +142,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ShowItemsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -543,9 +544,11 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\AddOrEdit.cshtml" />
     <Content Include="Views\Items\ShowItems.cshtml" />
+    <Content Include="Views\Items\ShoppingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DB\" />
+    <Folder Include="Views\ShowItems\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

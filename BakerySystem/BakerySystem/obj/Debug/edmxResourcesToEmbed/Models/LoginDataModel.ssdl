@@ -26,6 +26,7 @@
     <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
     <Property Name="img_src" Type="binary" MaxLength="50" />
     <Property Name="categoryId" Type="bigint" />
+    <Property Name="quantity" Type="int" />
   </EntityType>
   <EntityType Name="SYS_USR_INFO">
     <Key>

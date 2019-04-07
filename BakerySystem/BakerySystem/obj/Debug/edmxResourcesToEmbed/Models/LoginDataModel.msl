@@ -4,6 +4,7 @@
     <EntitySetMapping Name="BKRY_ITEMS">
       <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_ITEMS">
         <MappingFragment StoreEntitySet="BKRY_ITEMS">
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
           <ScalarProperty Name="categoryId" ColumnName="categoryId" />
           <ScalarProperty Name="img_src" ColumnName="img_src" />
           <ScalarProperty Name="Id" ColumnName="Id" />

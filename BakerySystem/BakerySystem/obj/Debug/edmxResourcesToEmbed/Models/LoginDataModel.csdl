@@ -15,6 +15,7 @@
     <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="img_src" Type="Binary" MaxLength="50" FixedLength="true" />
     <Property Name="categoryId" Type="Int64" />
+    <Property Name="quantity" Type="Int32" />
   </EntityType>
   <EntityType Name="SYS_USR_INFO">
     <Key>

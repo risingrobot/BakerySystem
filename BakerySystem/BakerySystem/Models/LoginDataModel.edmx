@@ -31,6 +31,7 @@
           <Property Name="insert_by" Type="nvarchar" MaxLength="50" />
           <Property Name="img_src" Type="binary" MaxLength="50" />
           <Property Name="categoryId" Type="bigint" />
+          <Property Name="quantity" Type="int" />
         </EntityType>
         <EntityType Name="SYS_USR_INFO">
           <Key>
@@ -68,6 +69,7 @@
           <Property Name="insert_by" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="img_src" Type="Binary" MaxLength="50" FixedLength="true" />
           <Property Name="categoryId" Type="Int64" />
+          <Property Name="quantity" Type="Int32" />
         </EntityType>
         <EntityType Name="SYS_USR_INFO">
           <Key>
@@ -106,6 +108,7 @@
           <EntitySetMapping Name="BKRY_ITEMS">
             <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_ITEMS">
               <MappingFragment StoreEntitySet="BKRY_ITEMS">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="categoryId" ColumnName="categoryId" />
                 <ScalarProperty Name="img_src" ColumnName="img_src" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

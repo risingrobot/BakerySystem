@@ -163,11 +163,6 @@ C:\Users\Arsalan\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Deb
 C:\Users\Arsalan\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CopyComplete
 C:\Users\Arsalan\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.dll
 C:\Users\Arsalan\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.pdb
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\BakerySystem.dll.config
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\BakerySystem.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\BakerySystem.pdb
@@ -185,9 +180,11 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.CSharp.Core.targets
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.Managed.Core.targets
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.AppContext.dll
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Collections.Immutable.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Console.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Diagnostics.StackTrace.dll
@@ -196,6 +193,7 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.IO.FileSystem.Primitives.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.IO.Pipes.AccessControl.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.IO.Pipes.dll
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Reflection.Metadata.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Security.AccessControl.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Security.Claims.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Security.Cryptography.Algorithms.dll
@@ -205,6 +203,7 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Security.Principal.Windows.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Text.Encoding.CodePages.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.ValueTuple.dll
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Xml.ReaderWriter.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Xml.XmlDocument.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Xml.XPath.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\System.Xml.XPath.XDocument.dll
@@ -243,6 +242,7 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Antlr3
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.pdb

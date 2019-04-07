@@ -25,5 +25,6 @@ namespace BakerySystem.Models
         public string insert_by { get; set; }
         public byte[] img_src { get; set; }
         public Nullable<long> categoryId { get; set; }
+        public Nullable<int> quantity { get; set; }
     }
 }

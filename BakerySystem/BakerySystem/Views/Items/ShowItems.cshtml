@@ -5,7 +5,7 @@
 }
 
 <h2>Items</h2>
-
+<a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=ClearCart()><i class="fa fa-remove" style="font-size:24px;color:red"></i></i> ClearCart Cart</a>
 <table id="itemsTable" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
@@ -53,6 +53,25 @@
     });
     function AddtoCart(data)
     {
-
+        $.ajax({
+            type: 'POST',           
+            url: '/ShowItems/AddtoCart',
+            data: {
+                'id': data
+            },
+            success: function (msg) {
+                location.reload(true);
+            }
+        });       
+    }
+    function ClearCart()
+    {
+        $.ajax({
+            type: 'POST',
+            url: '/ShowItems/ClearCart',            
+            success: function (msg) {
+                location.reload(true);
+            }
+        });  
     }
     </script>
