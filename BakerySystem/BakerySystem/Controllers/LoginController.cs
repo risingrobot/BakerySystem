@@ -37,6 +37,7 @@ namespace BakerySystem.Controllers
                     ld.OperatingSystem = userDetails.OperatingSystem;
                     ld.MachineIP = userDetails.MachineIP;
                     ld.UserPassowrd = userDetails.UserPassowrd;
+                    ld.LoginTime = DateTime.Now;
                     db.LoginDetails.Add(ld);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Items");
