@@ -84,5 +84,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="GetOrderDetails">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.GetOrderDetail">
+        <MappingFragment StoreEntitySet="GetOrderDetails">
+          <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+          <ScalarProperty Name="postCode" ColumnName="postCode" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="personname" ColumnName="personname" />
+          <ScalarProperty Name="Orderon" ColumnName="Orderon" />
+          <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

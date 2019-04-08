@@ -17,22 +17,54 @@ namespace BakerySystem.Controllers
         }
         public ActionResult Getorder(int id)
         {
-            List<BKRY_DELIVERY> bkryList = new List<BKRY_DELIVERY>();
+            List<GetOrderDetail> bkryList = new List<GetOrderDetail>();
             List<BKRY_ITEMS> lstBKRY_ITEMS = new List<BKRY_ITEMS>();
 
             using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
-                bkryList = db.BKRY_DELIVERY.Where(x => x.Id == id).ToList<BKRY_DELIVERY>();
-                foreach (BKRY_DELIVERY item in bkryList)
+                bkryList = db.GetOrderDetails.Where(x => x.OrderId == id).ToList<GetOrderDetail>();
+                foreach (var item in bkryList)
                 {
-                    lstBKRY_ITEMS.Add(JsonConvert.DeserializeObject<BKRY_ITEMS>(item.OrderDetails));
+                    item.OrderDetails = null;
+                    item.address = item.address + " " + item.street + " " + item.postCode; 
                 }
-                //}
-                //var commondata = from x in bkryList join lstBKRY_ITEMS 
-                return Json(new { data = "" }, JsonRequestBehavior.AllowGet);
+                return Json(new { data = bkryList }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpPost]
+        public ActionResult GetorderDetails(int id)
+        {
+            List<GetOrderDetail> bkryList = new List<GetOrderDetail>();
+            List<BKRY_ITEMS> lstBKRY_ITEMS = new List<BKRY_ITEMS>();
+
+            using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+            {
+                bkryList = db.GetOrderDetails.Where(x => x.OrderId == id).ToList<GetOrderDetail>();
+                foreach (var item in bkryList)
+                {
+                    lstBKRY_ITEMS= Newtonsoft.Json.JsonConvert.DeserializeObject<List<BKRY_ITEMS>>(item.OrderDetails);
+                    item.address = item.address + " " + item.street + " " + item.postCode;
+                }
+                return PartialView("~/Views/Order/OrderDetails.cshtml", lstBKRY_ITEMS);
             }
         }
 
-        }
+    }
+    //class orderObject
+    //{
+    //    public Nullable<int> OrderId { get; set; }  
+       
+    //    public Nullable<System.DateTime> Orderon { get; set; }
+    //    public string personname { get; set; }       
+    //    public string address { get; set; }
+    //    public string street { get; set; }
+    //    public string postCode { get; set; }
+    //    public string Delivered { get; set; }        
+    //    public string Itemname { get; set; }
+    //    public Nullable<decimal> Itemprice { get; set; }        
+    //    public string expiry_dte { get; set; } 
+    //    public Nullable<long> categoryId { get; set; }
+    //    public Nullable<int> quantity { get; set; }
+    //}
     
 }

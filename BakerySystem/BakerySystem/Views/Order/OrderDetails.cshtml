@@ -1,0 +1,35 @@
+﻿<style>
+    
+    #divtotal {
+        background-color: lightgrey;
+        width: 300px;
+        border: 25px solid green;
+        padding: 25px;
+        margin: 25px;
+    }
+    </style>
+<div id="OrderDetails">
+    <table style="width:100%">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+        @{
+            decimal total = 0;
+            foreach (BakerySystem.Models.BKRY_ITEMS item in Model)
+            {
+                total += total + (decimal)item.price;
+                <tr>
+                    <th>@item.name</th>
+                    <th>@item.quantity</th>
+                    <th>@item.price</th>
+                    <th><img style="width:70px;height:70px;" src="/Home/getImage2/@item.Id"></th>
+                </tr>
+            }
+
+        }
+    </table>
+    <div class="" id="divtotal">Total $ @total</div>
+</div>

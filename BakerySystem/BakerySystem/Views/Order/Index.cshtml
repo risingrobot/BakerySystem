@@ -3,48 +3,105 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .errorClass {
+        border: 1px solid red;
+    }
+    .orderidcl {
+        border: 1px solid #ccc;
+    }
+    </style>
 <div>
-    <label>Please Enter Order ID to Search</label><input type="number" placeholder="ID" id="orderid">    
-    <input type="button" value="Search" Onclick="Search()">
+    <label>Please Enter Order ID to Search</label> <br><input class="orderidcl" type="number" placeholder="Enter Order No" id="orderid">
+    <input type="button" value="Search" Onclick="Search()"><i class="fa fa-search"></i>
 </div>
-<div id="DeliveryDetails" hidden>
-    <table id="itemsTable" class="table table-striped table-bordered" style="width:100%">
+<br>
+<div id="DeliveryDetails">
+    <table id="deliveryTable" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Item Name</th>
-                <th>Item Price</th>
-                <th>Image</th>
-                <th>Date Added</th>
-                <th>Expiry Date</th>
-                <th>Editing</th>
+                <th>Order No#</th>
+                <th>Order on</th>
+                <th>Person Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Delivered</th>
+                <th>View Details</th>
             </tr>
         </thead>
     </table>
 
-    <script>
-        var Popup, dataTable;
-        function Search() {
-            alert('haha');
-            dataTable = $("#itemsTable").DataTable({
-                "ajax": {
-                    "url": "/Order/GetOrder",
-                    "type": "GET",
-                    "data": $('#orderid').val(),
-                    "datatype": "json"
-                },
-                "columns": [
-                    { "data": "personname" },
-                    { "data": "price" },
-                    { "data": "Id", "render": function (data) { return '<img style="width:70px;height:70px;" src="' + "/Home/getImage2/" + data + '" />'; } },
-                    { "data": "add_date" }                   
-
-                ],
-                "language": {
-
-                    "emptyTable": "No data found, Please click on <b>Add New</b> Button"
-                }
-            });
-            $('#DeliveryDetails').show();
-        }
-        </script>
 </div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" style="width:500px;height:500px;">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+               Order Details
+            </div>
+            <div class="modal-body" id="modalbody" style="width:100%;height:100%;">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <script>
+            var Popup, dataTable;
+            function Search() {
+                if ($('#orderid').val().trim() == '') {
+                    $('#orderid').removeClass('orderidcl');
+                    $('#orderid').addClass('errorClass');
+                    setTimeout(function () {
+                        $('#orderid').removeClass('errorClass');
+                        $('#orderid').addClass('orderidcl');
+                    }, 1000);
+                    return;
+                }
+                $('#DeliveryDetails').hide();
+                $('#DeliveryDetails').empty();
+                $('#DeliveryDetails').append('<table id="deliveryTable" class="table table-striped table-bordered" style="width:100%"><thead><tr><th>Order No#</th><th>Order on</th><th>Person Name</th><th>Email</th><th>Address</th><th>Delivered</th><th>View Details</th></tr></thead></table >');
+                dataTable = $("#deliveryTable").DataTable({
+                    "ajax": {
+                        "url": "/Order/GetOrder/" + $('#orderid').val(),
+                        "type": "GET",
+                        "datatype": "json"
+                    },
+                    "columns": [
+                        { "data": "OrderId" },
+                        { "data": "Orderon" },
+                        { "data": "personname" },
+                        { "data": "email" },
+                        { "data": "address" },
+                        { "data": "Delivered" },
+                        { "data": "OrderId", render: function (data) { return "<a class='btn btn-info btn-sm' style='margin-left:5px' onclick=showOrderDetails(" + data + ")><i class='fa fa-cart-plus'></i> View Details</a>"; } }
+
+                    ],
+                    "language": {
+
+                        "emptyTable": "No data found"
+                    }
+                });
+                $(".dataTables_filter").hide();
+                $(".dataTables_info").hide();
+                $(".dataTables_length").hide();
+                $('.dataTables_paginate paging_simple_numbers').hide();
+                $('#DeliveryDetails').show();
+
+            }
+
+            function showOrderDetails(data) {
+                
+                $('#modalbody').empty();
+                $.post('/Order/GetorderDetails/' + data).done(function (response)
+                {
+                    $('#modalbody').append(response);
+                });
+                
+                $('#myModal').modal('show');
+            }
+        </script>

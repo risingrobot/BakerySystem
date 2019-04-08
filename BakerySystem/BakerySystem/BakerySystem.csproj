@@ -157,6 +157,9 @@
     <Compile Include="Models\BKRY_ORDER.cs">
       <DependentUpon>LoginDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetOrderDetail.cs">
+      <DependentUpon>LoginDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LoginDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -561,6 +564,7 @@
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Order\OrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DB\" />

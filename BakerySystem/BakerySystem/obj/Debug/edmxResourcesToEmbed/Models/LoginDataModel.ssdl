@@ -77,6 +77,22 @@
     <Property Name="LoginTime" Type="datetime" />
     <Property Name="LoginErrorMessage" Type="nvarchar" MaxLength="500" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERYSYSTEM\BAKERYSYSTEM\APP_DATA\BKRY_MNGT_SYS.MDF.dbo.GetOrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GetOrderDetails">
+    <Key>
+      <PropertyRef Name="Delivered" />
+    </Key>
+    <Property Name="OrderId" Type="int" />
+    <Property Name="OrderDetails" Type="nvarchar(max)" />
+    <Property Name="Orderon" Type="datetime" />
+    <Property Name="personname" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="address" Type="nvarchar(max)" />
+    <Property Name="street" Type="nvarchar(max)" />
+    <Property Name="postCode" Type="nvarchar(max)" />
+    <Property Name="Delivered" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="BKRY_MNGT_SYSModelStoreContainer">
     <EntitySet Name="BKRY_CATEGORY" EntityType="Self.BKRY_CATEGORY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BKRY_DELIVERY" EntityType="Self.BKRY_DELIVERY" Schema="dbo" store:Type="Tables" />
@@ -84,5 +100,18 @@
     <EntitySet Name="BKRY_ORDER" EntityType="Self.BKRY_ORDER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoginDetails" EntityType="Self.LoginDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GetOrderDetails" EntityType="Self.GetOrderDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GetOrderDetails].[OrderId] AS [OrderId], 
+    [GetOrderDetails].[OrderDetails] AS [OrderDetails], 
+    [GetOrderDetails].[Orderon] AS [Orderon], 
+    [GetOrderDetails].[personname] AS [personname], 
+    [GetOrderDetails].[email] AS [email], 
+    [GetOrderDetails].[address] AS [address], 
+    [GetOrderDetails].[street] AS [street], 
+    [GetOrderDetails].[postCode] AS [postCode], 
+    [GetOrderDetails].[Delivered] AS [Delivered]
+    FROM [dbo].[GetOrderDetails] AS [GetOrderDetails]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

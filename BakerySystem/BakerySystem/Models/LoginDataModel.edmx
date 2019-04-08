@@ -82,6 +82,22 @@
           <Property Name="LoginTime" Type="datetime" />
           <Property Name="LoginErrorMessage" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERYSYSTEM\BAKERYSYSTEM\APP_DATA\BKRY_MNGT_SYS.MDF.dbo.GetOrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GetOrderDetails">
+          <Key>
+            <PropertyRef Name="Delivered" />
+          </Key>
+          <Property Name="OrderId" Type="int" />
+          <Property Name="OrderDetails" Type="nvarchar(max)" />
+          <Property Name="Orderon" Type="datetime" />
+          <Property Name="personname" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="street" Type="nvarchar(max)" />
+          <Property Name="postCode" Type="nvarchar(max)" />
+          <Property Name="Delivered" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="BKRY_MNGT_SYSModelStoreContainer">
           <EntitySet Name="BKRY_CATEGORY" EntityType="Self.BKRY_CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BKRY_DELIVERY" EntityType="Self.BKRY_DELIVERY" Schema="dbo" store:Type="Tables" />
@@ -89,6 +105,19 @@
           <EntitySet Name="BKRY_ORDER" EntityType="Self.BKRY_ORDER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginDetails" EntityType="Self.LoginDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetOrderDetails" EntityType="Self.GetOrderDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GetOrderDetails].[OrderId] AS [OrderId], 
+    [GetOrderDetails].[OrderDetails] AS [OrderDetails], 
+    [GetOrderDetails].[Orderon] AS [Orderon], 
+    [GetOrderDetails].[personname] AS [personname], 
+    [GetOrderDetails].[email] AS [email], 
+    [GetOrderDetails].[address] AS [address], 
+    [GetOrderDetails].[street] AS [street], 
+    [GetOrderDetails].[postCode] AS [postCode], 
+    [GetOrderDetails].[Delivered] AS [Delivered]
+    FROM [dbo].[GetOrderDetails] AS [GetOrderDetails]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -130,6 +159,7 @@
           <EntitySet Name="BKRY_ORDER" EntityType="BKRY_MNGT_SYSModel.BKRY_ORDER" />
           <EntitySet Name="LoginDetails" EntityType="BKRY_MNGT_SYSModel.LoginDetail" />
           <EntitySet Name="BKRY_DELIVERY" EntityType="BKRY_MNGT_SYSModel.BKRY_DELIVERY" />
+          <EntitySet Name="GetOrderDetails" EntityType="BKRY_MNGT_SYSModel.GetOrderDetail" />
         </EntityContainer>
         <EntityType Name="BKRY_CATEGORY">
           <Key>
@@ -178,6 +208,20 @@
           <Property Name="OrderDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="inserted_dt" Type="DateTime" Precision="3" />
           <Property Name="Delivered" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="GetOrderDetail">
+          <Key>
+            <PropertyRef Name="Delivered" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="OrderDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Orderon" Type="DateTime" Precision="3" />
+          <Property Name="personname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="postCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Delivered" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -265,6 +309,21 @@
                 <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetOrderDetails">
+            <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.GetOrderDetail">
+              <MappingFragment StoreEntitySet="GetOrderDetails">
+                <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+                <ScalarProperty Name="postCode" ColumnName="postCode" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="personname" ColumnName="personname" />
+                <ScalarProperty Name="Orderon" ColumnName="Orderon" />
+                <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
