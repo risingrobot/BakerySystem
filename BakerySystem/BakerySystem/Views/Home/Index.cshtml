@@ -65,7 +65,7 @@
             var popup = document.getElementById("myPopup");
             $('#myPopup').text('@Session["Message"]');
             popup.classList.toggle("show");
-            setTimeout(function () { popup.remove(); $.post('/Home/ClearMessage'); }, 1000);
+            setTimeout(function () {$.post('/Home/ClearMessage'); }, 1000);
             
         }
 

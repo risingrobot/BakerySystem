@@ -71,11 +71,11 @@ namespace BakerySystem.Controllers
                     dobj.OrderDetails = JsonConvert.SerializeObject(bkryList);
                     dobj.OrderId = obj.Id;
                     dobj.inserted_dt = DateTime.Now;
-                    dobj.Delivered = false;
+                    dobj.DeliveryStatus = 0;
 
                     db.BKRY_DELIVERY.Add(dobj);
                     db.SaveChanges();
-                    Session["Message"] = "Saved Successfully your Order# is "+ dobj.Id.ToString();
+                    Session["Message"] = "Saved Successfully your Order# is "+ obj.Id.ToString();
                     return RedirectToAction("Index", "home");
                 }
             }

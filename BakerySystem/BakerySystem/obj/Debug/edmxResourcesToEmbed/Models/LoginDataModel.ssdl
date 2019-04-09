@@ -19,7 +19,7 @@
     <Property Name="OrderId" Type="int" />
     <Property Name="OrderDetails" Type="nvarchar(max)" />
     <Property Name="inserted_dt" Type="datetime" />
-    <Property Name="Delivered" Type="bit" />
+    <Property Name="DeliveryStatus" Type="int" />
   </EntityType>
   <EntityType Name="BKRY_ITEMS">
     <Key>
@@ -91,7 +91,7 @@ warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERY
     <Property Name="address" Type="nvarchar(max)" />
     <Property Name="street" Type="nvarchar(max)" />
     <Property Name="postCode" Type="nvarchar(max)" />
-    <Property Name="Delivered" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Delivered" Type="varchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityContainer Name="BKRY_MNGT_SYSModelStoreContainer">
     <EntitySet Name="BKRY_CATEGORY" EntityType="Self.BKRY_CATEGORY" Schema="dbo" store:Type="Tables" />

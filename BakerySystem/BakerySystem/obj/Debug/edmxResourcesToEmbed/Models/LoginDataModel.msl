@@ -76,7 +76,7 @@
     <EntitySetMapping Name="BKRY_DELIVERY">
       <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_DELIVERY">
         <MappingFragment StoreEntitySet="BKRY_DELIVERY">
-          <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+          <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
           <ScalarProperty Name="inserted_dt" ColumnName="inserted_dt" />
           <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />

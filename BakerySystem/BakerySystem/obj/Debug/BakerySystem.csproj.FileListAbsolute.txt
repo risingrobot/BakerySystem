@@ -212,7 +212,6 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\vbc.rsp
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\VBCSCompiler.exe
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Antlr3.Runtime.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\EntityFramework.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\EntityFramework.SqlServer.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.AspNet.TelemetryCorrelation.dll
@@ -230,6 +229,8 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\WebGrease.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\EntityFramework.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\EntityFramework.SqlServer.xml
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Newtonsoft.Json.pdb
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Newtonsoft.Json.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Web.Helpers.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Web.Mvc.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Web.Optimization.xml
@@ -237,8 +238,6 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Web.WebPages.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Web.WebPages.Deployment.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Web.WebPages.Razor.xml
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Newtonsoft.Json.xml
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Antlr3.Runtime.pdb
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -246,5 +245,3 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.pdb
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csprojAssemblyReference.cache
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Newtonsoft.Json.pdb

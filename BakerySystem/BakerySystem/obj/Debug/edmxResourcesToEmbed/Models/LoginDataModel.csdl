@@ -84,7 +84,7 @@
     <Property Name="OrderId" Type="Int32" />
     <Property Name="OrderDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="inserted_dt" Type="DateTime" Precision="3" />
-    <Property Name="Delivered" Type="Boolean" />
+    <Property Name="DeliveryStatus" Type="Int32" />
   </EntityType>
   <EntityType Name="GetOrderDetail">
     <Key>
@@ -98,6 +98,6 @@
     <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="postCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Delivered" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Delivered" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

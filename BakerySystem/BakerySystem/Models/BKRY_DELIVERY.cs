@@ -18,6 +18,6 @@ namespace BakerySystem.Models
         public Nullable<int> OrderId { get; set; }
         public string OrderDetails { get; set; }
         public Nullable<System.DateTime> inserted_dt { get; set; }
-        public Nullable<bool> Delivered { get; set; }
+        public Nullable<int> DeliveryStatus { get; set; }
     }
 }
