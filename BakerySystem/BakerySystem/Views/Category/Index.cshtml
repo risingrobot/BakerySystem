@@ -20,8 +20,7 @@
         </tr>
     </thead>
 </table>
-<link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
@@ -44,7 +43,7 @@
                     {"data":"Id" , "render" : function (data) {
                         return "<a class='btn btn-default btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit","Category")/" + data + "')><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete("+data+")><i class='fa fa-trash'></i> Delete</a>";
                     },
-                        "orderable": false,
+                        "orderable": true,
                         "searchable":false,
                         "width":"150px"
                     }

@@ -8,7 +8,7 @@
         $('.datepicker').datepicker(); //Initialise any date pickers
     });
 </script>
-
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 @using (Html.BeginForm("AddOrEdit", "Items", FormMethod.Post, new { onsubmit = "return SubmitForm(this)", enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(model => model.Id)
