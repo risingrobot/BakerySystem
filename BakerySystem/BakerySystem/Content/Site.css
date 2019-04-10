@@ -17,7 +17,8 @@ body {
 div{color:coral
 }
 td {
-    color: white
+    color: white;
+    
 }
 th {
     color: white
@@ -25,3 +26,12 @@ th {
 tr {
     color: white
 }
+h4 {color:white}
+a:link{color: white}
+i{
+    color: white
+}
+li{color:black;    background-color: black;
+    border-color: black;
+}
+
