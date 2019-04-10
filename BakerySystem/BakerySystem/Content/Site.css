@@ -7,3 +7,20 @@
     input.input-validation-error {
         border: 1px solid #e80c4d;
     }
+body {
+    background-image: url('../Images/ABC.jpg');
+    background-repeat: no-repeat;
+    
+    background-size: cover;
+    background-color: #cccccc;
+}
+div{color:black}
+td {
+    color: black
+}
+th {
+    color: black
+}
+tr {
+    color: black
+}

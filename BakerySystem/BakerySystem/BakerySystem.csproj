@@ -247,6 +247,7 @@
     <Content Include="Images\banner-bg.jpg" />
     <Content Include="Images\Cakes.jpg" />
     <Content Include="Images\call-action-bg.jpg" />
+    <Content Include="Images\ABC.jpg" />
     <Content Include="Images\Loading.gif" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\p3.jpg" />
