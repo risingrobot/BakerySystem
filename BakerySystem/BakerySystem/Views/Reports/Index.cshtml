@@ -3,11 +3,16 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 <style>
     .errorClass {
         border: 1px solid red;
     }
-    </style>
+</style>
 <h2>Reports</h2>
 <div>
     <div id="controls">
@@ -54,12 +59,12 @@
     });
     var Popup, dataTable;
     function Search() {
-        string html = '';
+        var html = '';
         if ($('#rpttype').val() == 0) {
-           
+
             $('#rpttype').addClass('errorClass');
             setTimeout(function () {
-                $('#rpttype').removeClass('errorClass');                
+                $('#rpttype').removeClass('errorClass');
             }, 1000);
             return;
         } else if ($('#rpttype').val() == 1) {
@@ -139,7 +144,7 @@
         }
         $('#ReportDiv').hide();
         $('#ReportDiv').empty();
-       
+
         $(".dataTables_filter").hide();
         $(".dataTables_info").hide();
         $(".dataTables_length").hide();
