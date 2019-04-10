@@ -11,15 +11,21 @@ namespace BakerySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class LoginDetail
     {
         public int Id { get; set; }
         public int UserId { get; set; }
+        [DisplayName("User Name")]
         public string UserName { get; set; }
+
+        [DisplayName("User Password")]
         public string UserPassowrd { get; set; }
         public string MachineIP { get; set; }
         public string OperatingSystem { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> LoginTime { get; set; }
     }
 }

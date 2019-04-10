@@ -11,12 +11,14 @@ namespace BakerySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class BKRY_CATEGORY
     {
         public int Id { get; set; }
         public string name { get; set; }
         public byte[] image { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> add_date { get; set; }
         public Nullable<bool> publish { get; set; }
         public string insert_by { get; set; }
