@@ -24,7 +24,7 @@ th {
     color: white
 }
 tr {
-    color: white
+    color: white;
 }
 h4 {color:white}
 a:link{color: white}
@@ -34,4 +34,10 @@ i{
 li{color:black;    background-color: black;
     border-color: black;
 }
-
+table {
+    border-width:2px;
+}
+.dataTables_paginate {
+    width: 100%;
+    text-align: center;
+}

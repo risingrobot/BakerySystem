@@ -322,7 +322,6 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csprojAssemblyReference.cache
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.dll

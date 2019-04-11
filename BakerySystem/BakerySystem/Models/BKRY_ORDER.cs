@@ -11,8 +11,7 @@ namespace BakerySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class BKRY_ORDER
     {
         public int Id { get; set; }
@@ -23,7 +22,6 @@ namespace BakerySystem.Models
         public string street { get; set; }
         public string postCode { get; set; }
         public string OrderDetails { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> inserted_dt { get; set; }
         public Nullable<bool> Delivered { get; set; }
     }

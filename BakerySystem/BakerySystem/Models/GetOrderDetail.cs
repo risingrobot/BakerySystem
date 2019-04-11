@@ -11,13 +11,11 @@ namespace BakerySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class GetOrderDetail
     {
         public Nullable<int> OrderId { get; set; }
         public string OrderDetails { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> Orderon { get; set; }
         public string personname { get; set; }
         public string email { get; set; }
