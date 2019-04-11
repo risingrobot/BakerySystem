@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 
@@ -36,4 +37,7 @@ namespace BakerySystem.Models
         public string postCode { get; set; }
         public string Delivered { get; set; }
     }
+	 
+	
 }
+
