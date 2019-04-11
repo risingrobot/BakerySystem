@@ -14,7 +14,7 @@ namespace BakerySystem.Models
     
     public partial class GetOrderDetail
     {
-        public Nullable<int> OrderId { get; set; }
+        public int OrderId { get; set; }
         public string OrderDetails { get; set; }
         public Nullable<System.DateTime> Orderon { get; set; }
         public string personname { get; set; }

@@ -90,7 +90,7 @@
     <Key>
       <PropertyRef Name="Delivered" />
     </Key>
-    <Property Name="OrderId" Type="Int32" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
     <Property Name="OrderDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Orderon" Type="DateTime" Precision="3" />
     <Property Name="personname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

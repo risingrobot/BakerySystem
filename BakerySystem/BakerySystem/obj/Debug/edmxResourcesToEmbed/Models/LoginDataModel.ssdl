@@ -83,7 +83,7 @@ warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERY
     <Key>
       <PropertyRef Name="Delivered" />
     </Key>
-    <Property Name="OrderId" Type="int" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
     <Property Name="OrderDetails" Type="nvarchar(max)" />
     <Property Name="Orderon" Type="datetime" />
     <Property Name="personname" Type="nvarchar(max)" />

@@ -86,9 +86,10 @@
 warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERYSYSTEM\BAKERYSYSTEM\APP_DATA\BKRY_MNGT_SYS.MDF.dbo.GetOrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GetOrderDetails">
           <Key>
+            
             <PropertyRef Name="Delivered" />
           </Key>
-          <Property Name="OrderId" Type="int" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="OrderDetails" Type="nvarchar(max)" />
           <Property Name="Orderon" Type="datetime" />
           <Property Name="personname" Type="nvarchar(max)" />
@@ -213,7 +214,7 @@ warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERY
           <Key>
             <PropertyRef Name="Delivered" />
           </Key>
-          <Property Name="OrderId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="OrderDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Orderon" Type="DateTime" Precision="3" />
           <Property Name="personname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
