@@ -28,7 +28,7 @@ namespace BakerySystem.Controllers
                         LoginDetailList = LoginDetailList.Where(x=>x.LoginTime >= (nm_dtfrom != "" ? Convert.ToDateTime(nm_dtfrom) : DateTime.Now) && x.LoginTime <= (nm_dtTo != "" ? Convert.ToDateTime(nm_dtTo).AddDays(1).AddTicks(-1) : DateTime.Now)).ToList();
                         return Json(new { data = LoginDetailList }, JsonRequestBehavior.AllowGet);                       
                     case "2":                        
-                        var BKRY_ORDERList = db.BKRY_DELIVERY.Join(obh,a=>a.OrderId,b=>b.Id, (a, b) => new { a, b }).Select(s => new BKRY_ORDER2
+                        var BKRY_ORDERList = db.BKRY_DELIVERY.Join(db.BKRY_ORDER,a=>a.OrderId,b=>b.Id, (a, b) => new { a, b }).Select(s => new BKRY_ORDER2
                         {
                             OrderId = ((int)s.a.OrderId).ToString(),
                             personname = s.b.personname,
@@ -40,7 +40,7 @@ namespace BakerySystem.Controllers
 
                         }).ToList().Where(y => y.Orderon >= (nm_dtfrom != "" ? Convert.ToDateTime(nm_dtfrom) : DateTime.Now) && y.Orderon <= (nm_dtTo != "" ? Convert.ToDateTime(nm_dtTo).AddDays(1).AddTicks(-1) : DateTime.Now)) ;
                         
-                        return Json(new { data = BKRY_ORDERList }, JsonRequestBehavior.AllowGet);
+                        return Json(new { data = BKRY_ORDERList.ToList<BKRY_ORDER2>() }, JsonRequestBehavior.AllowGet);
                         
                     case "3":
                         List<BKRY_ITEMS> bkryList = db.BKRY_ITEMS.ToList<BKRY_ITEMS>();
