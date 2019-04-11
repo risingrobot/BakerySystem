@@ -25,7 +25,10 @@ namespace BakerySystem.Controllers
                 foreach (BKRY_ITEMS item in bkryList)
                 {
                     item.image = null;
+                    item.add_dtee = item.add_date.ToString();
                 }
+
+
                 return Json(new { data = bkryList }, JsonRequestBehavior.AllowGet);
 
             }
