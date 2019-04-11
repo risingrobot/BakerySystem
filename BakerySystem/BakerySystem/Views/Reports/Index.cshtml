@@ -51,7 +51,6 @@
         function Search() {
             var html = '';
             if ($('#rpttype').val() == 0) {
-
                 $('#rpttype').addClass('errorClass');
                 setTimeout(function () {
                     $('#rpttype').removeClass('errorClass');
@@ -107,7 +106,7 @@
             else if ($('#rpttype').val() == 2) {
                 $('#ReportDiv').hide();
                 $('#ReportDiv').empty();
-                html = '<table id="ReportTable" class="table table-striped table-bordered" style="width:100%"><thead><tr><th>Order #</th><th>personname</th><th>address</th><th>postCode</th><th>Order on</th><th>Delivered</th></tr></thead></table >'
+                html = '<table id="ReportTable" class="table table-striped table-bordered" style="width:100%"><thead><tr><th>Order #</th><th>personname</th><th>address</th><th>postCode</th><th>Order on</th><th>Delivered</th><th>PaymentType</th></tr></thead></table >'
                 $('#ReportDiv').append(html);
                 dataTable = $("#ReportTable").DataTable({
                     "ajax": {
@@ -127,7 +126,8 @@
                         { "data": "address" },
                         { "data": "postCode" },
                         { "data": "add_dtee" },
-                        { "data": "Delivered" }
+                        { "data": "Delivered" },
+                        { "data": "PaymentType" }
                     ],
                     "language": {
 

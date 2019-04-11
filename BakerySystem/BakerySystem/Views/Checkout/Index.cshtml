@@ -3,9 +3,14 @@
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <style>
     body {
         font-family: Arial, Helvetica, sans-serif;       
+    }
+    .errorClass {
+        border: 1px solid red;
+        border-width: 3px; 
     }
     /* Full-width input fields */
     input[type=text], input[type=password] {
@@ -36,55 +41,134 @@
         .registerbtn:hover {
             opacity: 1;
         }
+    #divtotal {
+        background-color: lightgrey;
+        width: 200px;
+        border: 25px solid green;
+        padding: 25px;
+        margin: 25px;
+        float:right;
+    }
 
 
 </style>
 <script>
-    function OnComplete(response)
-    {
-        alert(response);
+ 
+        $(document).ready(function () {            
+            $('input[type=radio][name=nm_rad_pay]').change(function () {
+                if (this.value == '1') {                    
+                    $('#creditinfo').show();
+                } else {
+                    $('#creditinfo').hide();
+                }
+            });
+            $('#card_number').change(function ()
+            {
+                var val = validateCardNumber($('#card_number').val());
+                if (!val) {
+                    $('#card_number').addClass('required');                    
+                }
+            });
+            
+        });
+    function validateCardNumber(number) {
+        var regex = new RegExp("^[0-9]{16}$");
+        if (!regex.test(number))
+            return false;
+
+        return luhnCheck(number);
     }
+
+    function luhnCheck(val) {
+        var sum = 0;
+        for (var i = 0; i < val.length; i++) {
+            var intVal = parseInt(val.substr(i, 1));
+            if (i % 2 == 0) {
+                intVal *= 2;
+                if (intVal > 9) {
+                    intVal = 1 + (intVal % 10);
+                }
+            }
+            sum += intVal;
+        }
+        return (sum % 10) == 0;
+    }
+    
     </script>
 <div id="details">
     @using (Ajax.BeginForm("CreateOrder", "Checkout", new AjaxOptions { OnSuccess = "OnComplete" }))
     {
+      
+    <div class="col-md-6" style="float:left">
+        <h2> Checkout</h2>
+        <p> Please fill in this form to checkout</p>
         <div class="container">
-            <h2> Checkout</h2>
-            <p> Please fill in this form checkout.</p>
-            <hr>
-            <label for="email"> <b> Name</b> </label>
+            <label> <b> Name</b> </label>
             <input type="text" placeholder="Enter Name" name="name" required>
-            <label for="email"> <b> Phone</b> </label>
+            <label> <b> Phone</b> </label>
             <input type="text" placeholder="Enter Phone" name="phone" required>
-            <label for="email"> <b> Email</b> </label>
+            <label> <b> Email</b> </label>
             <input type="text" placeholder="Enter Email" name="email" required>
-            <label for="email"> <b> Address</b> </label>
+            <label> <b> Address</b> </label>
             <input type="text" placeholder="Enter Address" name="address" required>
-            <label for="email"> <b> Stree</b> </label>
+            <label> <b> Stree</b> </label>
             <input type="text" placeholder="Enter street" name="street" required>
 
             <label for="email"> <b> PostCode</b> </label>
-            <input type="number" placeholder="Enter PostCode" name="postcode" required>
+            <input type="number" placeholder="Enter PostCode" name="postcode" required style="width:100%">
+            <br><br>
+            <div>
+                <label for="email"> <b> Payment Method</b> </label><br>
+                <input type="radio" name="nm_rad_pay" value="0" checked> Cash on Delivery<br>
+                <input type="radio" name="nm_rad_pay" value="1"> Credit Card<br>
+            </div>
 
-            <hr>
-            <button type="submit" class="registerbtn"> Checkout</button>
+
         </div>
-    }
     </div>
+        <div class="col-md-6" style="float:right">
+            <div id="creditinfo" style="display:none">
+                <div class="col-50">
+                    <h3>Payment</h3>
+                     <br><br>                
+                    <label for="cname">Name on Card</label>
+                    <input type="text" id="cname" name="cardname" placeholder="Name on Card">
+                    <label for="ccnum">Credit card number</label>
+                    <input type="number" id="ccnum" name="cardnumber" maxlength="16" placeholder="XXXX-XXXX-XXXX-XXXX" style="width:100%">                    
+                    <label for="expyear">Exp Year</label>
+                    <input type="number" id="expyear" name="expyear" maxlength="4" placeholder="YYYY" style="width:100%">
+                    <label for="cvv">CVV</label>
+                    <input type="number"maxlength="3" id="cvv" name="cvv" placeholder="###" style="width:100%">                   
+                </div>
+            </div>
+        </div>
+       
+        <button type="submit" class="registerbtn"> Checkout</button>
+    }
+   
+</div>
 <div id="ShoppingCart">
     <table style="width:100%">
         <tr>
             <th>Name</th>
             <th>Quantity</th>
+            <th>Price</th>
             <th>Product</th>
         </tr>
-        @foreach (BakerySystem.Models.BKRY_ITEMS item in Model)
-        {
+        @{ 
+            decimal total = 0;
+            foreach (BakerySystem.Models.BKRY_ITEMS item in Model)
+            {
+               total=  total + ((decimal)item.price * (decimal)item.quantity);
         <tr>
             <th>@item.name</th>
             <th>@item.quantity</th>
+            <th>@item.price</th>
             <th><img style="width:70px;height:70px;" src="/Home/getImage2/@item.Id"></th>
+
         </tr>
             }
+            }
     </table>
+    <div class="" id="divtotal">Total $ @total</div>
 </div>

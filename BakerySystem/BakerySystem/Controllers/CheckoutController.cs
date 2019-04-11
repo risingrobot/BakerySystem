@@ -72,14 +72,26 @@ namespace BakerySystem.Controllers
                     dobj.OrderId = obj.Id;
                     dobj.inserted_dt = DateTime.Now;
                     dobj.DeliveryStatus = 0;
-
+                    dobj.PaymentType = Convert.ToInt16(Request.Form["nm_rad_pay"]);
+                    if (dobj.PaymentType ==1)
+                    {
+                        BKRY_CREDITCARDINFO objC = new BKRY_CREDITCARDINFO();
+                        objC.OrderID = obj.Id;
+                        objC.cardname = Request["cardname"].ToString();
+                        objC.cardnumber = Request["cardnumber"].ToString();                        
+                        objC.expyear = Request["expyear"].ToString();
+                        objC.cvv = Request["cvv"].ToString();
+                        objC.expmonth = " ";
+                        db.BKRY_CREDITCARDINFO.Add(objC);
+                    }
                     db.BKRY_DELIVERY.Add(dobj);
                     db.SaveChanges();
                     Session["Message"] = "Saved Successfully your Order# is "+ obj.Id.ToString();
                     return RedirectToAction("Index", "home");
                 }
             }
-            catch (Exception) { return Json(new { success = true, message = "UnSuccessfully" }, JsonRequestBehavior.AllowGet); }
+            catch (Exception ex) {
+                return Json(new { success = true, message = "UnSuccessfully" }, JsonRequestBehavior.AllowGet); }
         }
     }
 }

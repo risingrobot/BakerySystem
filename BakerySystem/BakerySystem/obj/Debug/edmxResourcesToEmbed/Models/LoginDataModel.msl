@@ -76,6 +76,7 @@
     <EntitySetMapping Name="BKRY_DELIVERY">
       <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_DELIVERY">
         <MappingFragment StoreEntitySet="BKRY_DELIVERY">
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
           <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
           <ScalarProperty Name="inserted_dt" ColumnName="inserted_dt" />
           <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
@@ -96,6 +97,19 @@
           <ScalarProperty Name="Orderon" ColumnName="Orderon" />
           <ScalarProperty Name="OrderDetails" ColumnName="OrderDetails" />
           <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BKRY_CREDITCARDINFO">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_CREDITCARDINFO">
+        <MappingFragment StoreEntitySet="BKRY_CREDITCARDINFO">
+          <ScalarProperty Name="cvv" ColumnName="cvv" />
+          <ScalarProperty Name="expyear" ColumnName="expyear" />
+          <ScalarProperty Name="expmonth" ColumnName="expmonth" />
+          <ScalarProperty Name="cardnumber" ColumnName="cardnumber" />
+          <ScalarProperty Name="cardname" ColumnName="cardname" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

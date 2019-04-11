@@ -20,7 +20,7 @@
             decimal total = 0;
             foreach (BakerySystem.Models.BKRY_ITEMS item in Model)
             {
-                total += total + (decimal)item.price;
+                total += total + (decimal)item.price * (decimal)item.quantity;
                 <tr>
                     <th>@item.name</th>
                     <th>@item.quantity</th>

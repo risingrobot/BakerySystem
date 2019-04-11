@@ -19,7 +19,21 @@ namespace BakerySystem.Models
         public string postCode { get; set; }
         public DateTime Orderon { get; set; }
         public string Delivered { get; set; }
+        public string PaymentType { get; set; }
 
 
+    }
+    public partial class GetOrderDetail2
+    {
+        public string add_dtee { get; set; }
+        public int OrderId { get; set; }
+        public string OrderDetails { get; set; }
+        public Nullable<System.DateTime> Orderon { get; set; }
+        public string personname { get; set; }
+        public string email { get; set; }
+        public string address { get; set; }
+        public string street { get; set; }
+        public string postCode { get; set; }
+        public string Delivered { get; set; }
     }
 }

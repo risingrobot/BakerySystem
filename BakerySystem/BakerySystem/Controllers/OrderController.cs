@@ -50,21 +50,4 @@ namespace BakerySystem.Controllers
         }
 
     }
-    //class orderObject
-    //{
-    //    public Nullable<int> OrderId { get; set; }  
-       
-    //    public Nullable<System.DateTime> Orderon { get; set; }
-    //    public string personname { get; set; }       
-    //    public string address { get; set; }
-    //    public string street { get; set; }
-    //    public string postCode { get; set; }
-    //    public string Delivered { get; set; }        
-    //    public string Itemname { get; set; }
-    //    public Nullable<decimal> Itemprice { get; set; }        
-    //    public string expiry_dte { get; set; } 
-    //    public Nullable<long> categoryId { get; set; }
-    //    public Nullable<int> quantity { get; set; }
-    //}
-    
 }

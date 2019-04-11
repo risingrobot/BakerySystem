@@ -19,5 +19,6 @@ namespace BakerySystem.Models
         public string OrderDetails { get; set; }
         public Nullable<System.DateTime> inserted_dt { get; set; }
         public Nullable<int> DeliveryStatus { get; set; }
+        public int PaymentType { get; set; }
     }
 }

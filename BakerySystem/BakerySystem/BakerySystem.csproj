@@ -147,6 +147,9 @@
     <Compile Include="Models\BKRY_CATEGORY.cs">
       <DependentUpon>LoginDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BKRY_CREDITCARDINFO.cs">
+      <DependentUpon>LoginDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BKRY_DELIVERY.cs">
       <DependentUpon>LoginDataModel.tt</DependentUpon>
     </Compile>

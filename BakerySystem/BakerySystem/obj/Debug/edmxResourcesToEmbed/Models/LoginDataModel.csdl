@@ -37,6 +37,7 @@
     <EntitySet Name="LoginDetails" EntityType="BKRY_MNGT_SYSModel.LoginDetail" />
     <EntitySet Name="BKRY_DELIVERY" EntityType="BKRY_MNGT_SYSModel.BKRY_DELIVERY" />
     <EntitySet Name="GetOrderDetails" EntityType="BKRY_MNGT_SYSModel.GetOrderDetail" />
+    <EntitySet Name="BKRY_CREDITCARDINFO" EntityType="BKRY_MNGT_SYSModel.BKRY_CREDITCARDINFO" />
   </EntityContainer>
   <EntityType Name="BKRY_CATEGORY">
     <Key>
@@ -85,6 +86,7 @@
     <Property Name="OrderDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="inserted_dt" Type="DateTime" Precision="3" />
     <Property Name="DeliveryStatus" Type="Int32" />
+    <Property Name="PaymentType" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="GetOrderDetail">
     <Key>
@@ -99,5 +101,17 @@
     <Property Name="street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="postCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Delivered" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BKRY_CREDITCARDINFO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="cardname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cardnumber" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="expmonth" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="expyear" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="cvv" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

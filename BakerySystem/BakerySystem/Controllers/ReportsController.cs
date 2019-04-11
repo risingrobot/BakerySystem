@@ -36,8 +36,8 @@ namespace BakerySystem.Controllers
                             postCode = s.b.postCode,
                             add_dtee = ((DateTime)s.b.inserted_dt).ToString(),
                             Orderon = (DateTime)s.b.inserted_dt,
-                            Delivered = s.a.DeliveryStatus == 0 ? "No" : s.a.DeliveryStatus == 1 ? "Dispatched" : s.a.DeliveryStatus == 2 ? "Near By" : "Yes"
-
+                            Delivered = s.a.DeliveryStatus == 0 ? "No" : s.a.DeliveryStatus == 1 ? "Dispatched" : s.a.DeliveryStatus == 2 ? "Near By" : "Yes",
+                            PaymentType = s.a.PaymentType == 0 ? "Cash on Delivery" : "Credit Card Payment"
                         }).ToList().Where(y => y.Orderon >= (nm_dtfrom != "" ? Convert.ToDateTime(nm_dtfrom) : DateTime.Now) && y.Orderon <= (nm_dtTo != "" ? Convert.ToDateTime(nm_dtTo).AddDays(1).AddTicks(-1) : DateTime.Now)) ;
                         
                         return Json(new { data = BKRY_ORDERList.ToList<BKRY_ORDER2>() }, JsonRequestBehavior.AllowGet);
