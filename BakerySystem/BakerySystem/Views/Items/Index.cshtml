@@ -8,7 +8,7 @@
 <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 <h2>Bakery Admin Panel</h2>
 
-<a class="btn btn-success" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","Items")')"><i class="fa fa-plus"></i> Add New</a>
+<a class="btn btn-default" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","Items")')"><i class="fa fa-plus"></i> Add New</a>
 <table id="itemsTable" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
@@ -36,7 +36,7 @@
                     { "data": "name" },
                     { "data": "price" },
                     { "data": "Id", "render": function (data) { return '<img style="width:70px;height:70px;" src="' + "/Home/getImage2/" + data + '" />'; } },
-                    { "data": "add_date" },
+                    { "data": "add_dtee", type: 'date-dd-mmm-yyyy', targets: 0 },
                     { "data": "expiry_dte" },
                     {"data":"Id" , "render" : function (data) {
                         return "<a class='btn btn-default btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit","Items")/" + data + "')><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete("+data+")><i class='fa fa-trash'></i> Delete</a>";

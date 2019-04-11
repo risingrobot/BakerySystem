@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Bakery Management System</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/css/heroic-features.css" rel="stylesheet" />
+    <script>
+
+
+        function ShowCart() {
+            window.location.href = '/ShowItems/ShowCategoryForm';
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">BMS</a>
+            <img src="~/Images/logo.png">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Home/Index">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Login/Index">Admin Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Find Order</a>
+                    </li>
+                    @if (Session["userID"] != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Category/Index">Categories</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Item/Index">Items</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Reports/Index">Reports</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("LogOut","Login")">LogOut</a>
+                        </li>
+                       }
+                    else
+                    {
+                        <li class="nav-item"><a class="nav-link" href="/Login/Index">Admin Login</a></li>
+
+                    }
+                    <li class="nav-item">><a class="nav-link" href="@Url.Action("Index","Order")">Find Order</a></li>
+
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+
+    @if (Session["Cart"] != null && ((List<int>
+                )Session["Cart"]) != null && ((List<int>
+                    )Session["Cart"]).Count > 0)
+    {
+        <a class='btn btn-warning btn-sm' style='margin-left:5px' onclick=ShowCart()><i class='fa fa-cart-plus'></i> Cart @(((List<int>)Session["Cart"]).Count)</a>
+    }
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <div id="login_for_review" class="modal hide" role="dialog">
+        </div>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Bakery System</p>
+        </footer>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; @DateTime.Now.Year - Bakery System</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

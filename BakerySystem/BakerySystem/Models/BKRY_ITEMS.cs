@@ -22,6 +22,7 @@ namespace BakerySystem.Models
         public Nullable<decimal> price { get; set; }
 
         public byte[] image { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> add_date { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public string expiry_dte { get; set; }
