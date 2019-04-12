@@ -69,11 +69,19 @@ namespace BakerySystem.Controllers
                     obj.LoginTime = DateTime.Now;
                     obj.LoginErrorMessage = JsonConvert.SerializeObject(userinfo);
                     db.SYS_USR_INFO.Add(obj);
-                    db.Entry(obj).State = EntityState.Modified;
-                    db.SaveChanges(); // fuck you exception fuck you Bitch
-                    Session["Message"] = "Saved Successfully your UserName# is " + obj.UserName.ToString();
-                    return RedirectToAction("Index", "home");
+                    if (db.SYS_USR_INFO.Where(x => x.UserName == objOn.UserName).ToList().Count == 0)
+                    {
+                        db.Entry(obj).State = EntityState.Added;
+
+                        db.SaveChanges(); // fuck you exception fuck you Bitch
+                        Session["Message"] = "Saved Successfully your UserName# is " + obj.UserName.ToString();                        
                     }
+                    else
+                    {
+                        Session["Message"] = "Username already exists UserName# is " + obj.UserName.ToString();
+                    }
+                    return RedirectToAction("Index", "home");
+                }
                 }
                 catch (Exception ex) { return Json(new { success = true, message = "UnSuccessfully" + ex.ToString() }, JsonRequestBehavior.AllowGet); }
             
