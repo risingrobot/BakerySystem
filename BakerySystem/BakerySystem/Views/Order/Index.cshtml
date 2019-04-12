@@ -17,9 +17,12 @@
         border: 1px solid #ccc;
     }
 </style>
+<br>
+<br>
 <div>
-    <label>Please Enter Order ID to Search</label> <br><input class="orderidcl" type="number" placeholder="Enter Order No" id="orderid">
-    <input type="button" value="Search" Onclick="Search()"><i class="fa fa-search"></i>
+    <label><b>Please Enter Order ID to Search</b></label> <br><input class="orderidcl form-control" type="number" style="width:300px" placeholder="Enter Order No" id="orderid">
+    <br>
+    <input type="button" value="Search" Onclick="Search()" class="btn btn-outline-warning" style="width:150px;"><i class="fa fa-search"></i>
 </div>
 <br>
 <div id="DeliveryDetails">
@@ -79,7 +82,7 @@
             },
             "columns": [
                 { "data": "OrderId" },
-                { "data": "Orderon" },
+                { "data": "add_dtee" },
                 { "data": "personname" },
                 { "data": "email" },
                 { "data": "address" },

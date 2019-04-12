@@ -7,7 +7,7 @@
 
 <h2>Category Mangement</h2>
 
-<a class="btn btn-default" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","Category")')"><i class="fa fa-plus"></i> Add New Categories</a>
+<a class="btn btn-outline-warning" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","Category")')"><i class="fa fa-plus"></i> Add New Categories</a>
 <table id="categoryTable" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
@@ -40,7 +40,7 @@
                 "columns": [
                     { "data": "name" },
                     { "data": "Id", "render": function (data) { return '<img style="width:70px;height:70px;" src="' + "/Home/getImage/" + data + '" />'; } },
-                    { "data": "add_date" },
+                    { "data": "add_date", type: 'date-dd-mmm-yyyy', targets: 0 },
                     { "data": "publish", "render": function (data) { return data == true ? 'Yes' : 'No' } },
                     { "data": "insert_by" },
                     {"data":"Id" , "render" : function (data) {
