@@ -317,6 +317,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Properties\LICENSE" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\gulpfile.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -77,11 +77,12 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/Home/Index">Home</a></li>
                 </ul>
-                <ul class="nav navbar-nav">
-                    <li><a href="/SignUp/Index">Sign Up</a></li>
-                </ul>
+               
                 @if (Session["userID"] != null)
                 {
+                    <ul class="nav navbar-nav">
+                        <li><a href="/SignUp/Index">Create User</a></li>
+                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/Category/Index">Category</a></li>
                     </ul>
