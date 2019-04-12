@@ -25,7 +25,7 @@ namespace BakerySystem.Controllers
                 foreach (BKRY_ITEMS item in bkryList)
                 {
                     item.image = null;
-                    item.add_dtee = item.add_date.ToString();
+                    item.add_dtee = Convert.ToDateTime(item.add_date).ToLongDateString();
                 }
 
 
@@ -58,7 +58,7 @@ namespace BakerySystem.Controllers
         [HttpPost]
         public ActionResult AddOrEdit(BKRY_ITEMS bkt, HttpPostedFileBase file)
         {
-
+            
             byte[] buf = null;
             if (file != null && file.ContentLength > 0)
             {
@@ -67,20 +67,22 @@ namespace BakerySystem.Controllers
                 bkt.image = buf;
             }
             bkt.insert_by = Session != null && Session["UserName"] != null ? Session["UserName"].ToString() : "";
-
+            bkt.add_date = DateTime.Now;
+            bkt.categoryId = Convert.ToInt64(Request.Form["categoryname"] != "" ? Request.Form["categoryname"] : "0");
             using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
                 if (bkt.Id == 0)
                 {
                     db.BKRY_ITEMS.Add(bkt);
                     db.SaveChanges();
-                    return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
+                    return RedirectToAction("Index");
+                   
                 }
                 else
                 {
                     db.Entry(bkt).State = EntityState.Modified;
                     db.SaveChanges();
-                    return Json(new { success = true, message = "Updated Successfully" }, JsonRequestBehavior.AllowGet);
+                    return RedirectToAction("Index");
                 }
             }
 

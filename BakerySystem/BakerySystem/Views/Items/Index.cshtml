@@ -89,8 +89,8 @@
                     autoOpen: true,
                     resizable: false,
                     title: 'Fill Items Details',
-                    height: 550,
-                    width: 700,
+                    height: 600,
+                    width: 600,
                     close: function () {
                         Popup.dialog('destroy').remove();
                     }
@@ -99,23 +99,20 @@
             });
         }
 
-        function SubmitForm(form) {
-            $.validator.unobtrusive.parse(form);
+    function SubmitForm(form) {       
+        $.validator.unobtrusive.parse(form);
+        var enctype = form.attr('id');
             if($(form).valid()){
                 $.ajax({
                     type : "POST",
-                    url : form.action,
+                    url: form.action,
+                    contentType: enctype,
                     data : $(form).serialize(),
                     success : function (data) {
                         if(data.success)
                         {
                             Popup.dialog('close');
                             dataTable.ajax.reload();
-
-                            $.notify(data.message,{
-                                globalPosition :"top center",
-                                className : "success"
-                            })
 
                         }
                     }

@@ -21,10 +21,11 @@ namespace BakerySystem.Controllers
         {
             using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
             {
-                List<BKRY_CATEGORY> bkryList = db.BKRY_CATEGORY.ToList<BKRY_CATEGORY>();
+                List<BKRY_CATEGORY> bkryList = db.BKRY_CATEGORY.ToList<BKRY_CATEGORY>();              
                 foreach (BKRY_CATEGORY item in bkryList)
                 {
                     item.image = null;
+                    item.add_dtee = Convert.ToDateTime(item.add_date).ToLongDateString();
                 }
                 return Json(new { data = bkryList }, JsonRequestBehavior.AllowGet);
             }
@@ -64,13 +65,13 @@ namespace BakerySystem.Controllers
                     {
                         db.BKRY_CATEGORY.Add(bkt);
                         db.SaveChanges();
-                        return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
+                        return RedirectToAction("Index");
                     }
                     else
                     {
                         db.Entry(bkt).State = EntityState.Modified;
                         db.SaveChanges();
-                        return Json(new { success = true, message = "Updated Successfully" }, JsonRequestBehavior.AllowGet);
+                        return RedirectToAction("Index");
                     }
                 }
 

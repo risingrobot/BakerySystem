@@ -37,7 +37,13 @@ namespace BakerySystem.Models
         public string postCode { get; set; }
         public string Delivered { get; set; }
     }
-	 
-	
+    public partial class BKRY_CATEGORY
+    {
+        public string add_dtee { get; set; }
+    }
+    public partial class LoginDetail
+    {
+         public string add_dtee { get; set; }
+    }
 }
 

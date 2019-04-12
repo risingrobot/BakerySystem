@@ -23,14 +23,20 @@
     <script src="~/Scripts/notify.min.js"></script>
 
      <style>
-        .ui-dialog .ui-dialog-content {
-            border: 0;
-            padding: .5em 1em;
-            background: #28a745;
-            overflow: auto;
-            zoom: 1;
-        }
-        
+         .ui-dialog .ui-dialog-content {
+             border: 0;
+             padding: .5em 1em;
+             background: #454d55;
+             overflow: auto;
+             zoom: 1;
+         }
+         .footer {
+             position: fixed;
+             left: 0;
+             bottom: 0;
+             width: 100%;
+             text-align: center;
+         }
     </style>
     <script>
 
@@ -112,9 +118,9 @@
                 <div id="login_for_review" class="modal hide" role="dialog">
 
                 </div>
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - Bakery System</p>
-                </footer>
+                <div class="footer" >
+                    <p><b>&copy; @DateTime.Now.Year - Bakery System</b></p>
+                </div>
             </div>
 
 </body>

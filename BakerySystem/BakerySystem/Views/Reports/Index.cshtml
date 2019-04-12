@@ -13,85 +13,48 @@
         border: 1px solid red;
         border-width: 3px;
     }
-    select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        outline: 0;
-        box-shadow: none;
-        border: 0 !important;
-        background: #2c3e50;
-        background-image: none;
+    #controls 
+    {
+        align-content:center;    
+        position: absolute;        
+        z-index: 15;
+        top: 20%;
+        left: 35%;
+        margin: -100px 0 0 -150px;        
     }
-    /* Custom Select */
-    .select {
-        position: relative;
-        display: block;
-        width: 20em;
-        height: 3em;
-        line-height: 3;
-        background: #2c3e50;
-        overflow: hidden;
-        border-radius: .25em;
-    }
-
-    select {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0 0 0 .5em;
-        color: #fff;
-        cursor: pointer;
-    }
-
-        select::-ms-expand {
-            display: none;
-        }
-    /* Arrow */
-    .select::after {
-        content: '\25BC';
+    #ReportDiv {
+        align-content: center;
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        padding: 0 1em;
-        background: #34495e;
-        pointer-events: none;
-    }
-    /* Transition */
-    .select:hover::after {
-        color: #f39c12;
-    }
-
-    .select::after {
-        -webkit-transition: .25s all ease;
-        -o-transition: .25s all ease;
-        transition: .25s all ease;
+        z-index: 15;
+        top: 50%;
+        left: 35%;
+        margin: -100px 0 0 -150px;
     }
 </style>
 <h2>Reports</h2>
 
 <div>
     <div id="controls">
-        <label>Please Select Report Type</label> <br>
+        <label><b>Please Select Report Type</b></label> <br>
         <div class="select" style="width:200px;">
-            <select id="rpttype" name="nm_rpttype">
+            <select id="rpttype" name="nm_rpttype" class="form-control">
                 <option value="0" selected>Report Type</option>
                 <option value="1">Admin login Details</option>
                 <option value="2">Order Details</option>
                 <option value="3">Item Details</option>
             </select>
         </div><br>
-        <label>Date From</label> <br>
-        <input type="text" id="dtfrom" class="datepicker btn-outline-primary" name="nm_dtfrom">
+        <label><b>Date From</b></label> <br>
+        <input type="text" id="dtfrom" class="datepicker" name="nm_dtfrom">
         <br>
-        <label>Date To</label> <br>
-        <input type="text" id="dtTo" class="datepicker btn-outline-primary" name="nm_dtTo">
+        <label><b>Date To</b></label> <br>
+        <input type="text" id="dtTo" class="datepicker" name="nm_dtTo">
         <br><br>
         <input type="button" id="search" value="Search" class="btn btn-outline-primary" onclick="Search()">
         <br>
     </div>
     <div id="ReportDiv">
-        <table id="ReportTable" class="table table-striped table-bordered" style="width:100%"></table>
+        <table id="ReportTable" class="table table-striped table-bordered table-responsive table-dark" style="width:100%"></table>
     </div>
 </div>
 
@@ -130,9 +93,10 @@
             return;
         }
         else if ($('#rpttype').val() == 1) {
+            debugger;
             $('#ReportDiv').hide();
             $('#ReportDiv').empty();
-            html = '<table id="ReportTable" class="table table-striped table-bordered" style="width:100%"><thead><tr><th>Id</th><th>User Name</th><th>MachineIP</th><th>OperatingSystem</th><th>LoginTime</th></tr></thead></table >'
+            html = '<table id="ReportTable" class="table table-striped table-bordered table-responsive table-dark" style="width:100%"><thead><tr><th>Id</th><th>User Name</th><th>MachineIP</th><th>OperatingSystem</th><th>LoginTime</th></tr></thead></table >'
             $('#ReportDiv').append(html);
             dataTable = $("#ReportTable").DataTable({
                 "ajax": {
@@ -151,7 +115,7 @@
                     { "data": "UserName" },
                     { "data": "MachineIP" },
                     { "data": "OperatingSystem" },
-                    { "data": "LoginTime" }
+                    { "data": "add_dtee" }
                 ],
                 "language": {
 
@@ -162,7 +126,7 @@
         else if ($('#rpttype').val() == 2) {
             $('#ReportDiv').hide();
             $('#ReportDiv').empty();
-            html = '<table id="ReportTable" class="table table-striped table-bordered" style="width:100%"><thead><tr><th>Order #</th><th>personname</th><th>address</th><th>postCode</th><th>Order on</th><th>Delivered</th><th>PaymentType</th></tr></thead></table >'
+            html = '<table id="ReportTable" class="table table-striped table-bordered table-responsive table-dark" style="width:100%"><thead><tr><th>Order #</th><th>personname</th><th>address</th><th>postCode</th><th>Order on</th><th>Delivered</th><th>PaymentType</th></tr></thead></table >'
             $('#ReportDiv').append(html);
             dataTable = $("#ReportTable").DataTable({
                 "ajax": {
@@ -194,7 +158,7 @@
         else if ($('#rpttype').val() == 3) {
             $('#ReportDiv').hide();
             $('#ReportDiv').empty();
-            html = '<table id="ReportTable" class="table table-striped table-bordered" style="width:100%"><thead><tr><th>Item Name</th><th>Item Price</th><th>Image</th><th>Expiry Date</th></tr></thead></table>'
+            html = '<table id="ReportTable" class="table table-striped table-bordered table-responsive table-dark" style="width:100%"><thead><tr><th>Item Name</th><th>Item Price</th><th>Image</th><th>Expiry Date</th></tr></thead></table>'
             $('#ReportDiv').append(html);
             $("#ReportTable").DataTable({
                 "ajax": {
@@ -212,7 +176,7 @@
                     { "data": "name" },
                     { "data": "price" },
                     { "data": "Id", "render": function (data) { return '<img style="width:70px;height:70px;" src="' + "/Home/getImage2/" + data + '" />'; } },
-                    { "data": "expiry_dte" }
+                    { "data": "add_dtee" }
                 ],
                 "language": {
 
