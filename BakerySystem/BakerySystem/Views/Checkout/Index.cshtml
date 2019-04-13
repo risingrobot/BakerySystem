@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    HtmlHelper.ClientValidationEnabled = false;
 }
 
 <style>
@@ -53,12 +54,21 @@
 </style>
 <script>
  
-        $(document).ready(function () {            
+    $(document).ready(function () {            
+        $validateHiddenInputs: false
             $('input[type=radio][name=nm_rad_pay]').change(function () {
                 if (this.value == '1') {                    
-                    $('#creditinfo').show();                    
+                    $('#creditinfo').show();
+                    @HtmlHelper.ClientValidationEnabled=true;
+                    $("#creditinfo").validate({
+                        ignore: ':hidden',
+                        submitHandler: function (form) {
+                            //To do
+                        }
+                    });
                 } else {
                     $('#creditinfo').hide();
+                   @HtmlHelper.ClientValidationEnabled =false;
                     var form = $('#my_form_id').get(0);
                     $(form).removeData('validate');
                 }
@@ -133,35 +143,35 @@
                     <h4>Credit Card Info</h4> 
                     <br>
                     <br>
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" , id = "vs1" })
                     <div class="form-group">
                         <b> @Html.LabelFor(model => model.Item3.cardname, htmlAttributes: new { @class = "control-label" })</b>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Item3.cardname, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Item3.cardname, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Item3.cardname, new { htmlAttributes = new { @class = "form-control",id = "ed1" } })
+                            @Html.ValidationMessageFor(model => model.Item3.cardname, "", new { @class = "text-danger", id = "validationm1" ,})
                         </div>
                     </div>
 
                     <div class="form-group">
                         <b>@Html.LabelFor(model => model.Item3.cardnumber, htmlAttributes: new { @class = "control-label" })</b>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Item3.cardnumber, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "16" } })
-                            @Html.ValidationMessageFor(model => model.Item3.cardnumber, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Item3.cardnumber, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "16", id = "ed2" } })
+                            @Html.ValidationMessageFor(model => model.Item3.cardnumber, "", new { @class = "text-danger", id = "validationm2" })
                         </div>
                     </div>
                     <div class="form-group">
-                        <b> @Html.LabelFor(model => model.Item3.expyear, htmlAttributes: new { @class = "control-label" })</b>
+                        <b> @Html.LabelFor(model => model.Item3.expyear, htmlAttributes: new { @class = "control-label",id = "ed2" })</b>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Item3.expyear, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "4" } })
-                            @Html.ValidationMessageFor(model => model.Item3.expyear, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Item3.expyear, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "4", id = "ed3" } })
+                            @Html.ValidationMessageFor(model => model.Item3.expyear, "", new { @class = "text-danger", id = "validationm0" })
                         </div>
                     </div>
 
                     <div class="form-group">
                         <b> @Html.LabelFor(model => model.Item3.cvv, htmlAttributes: new { @class = "control-label" })</b>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Item3.cvv, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "3" } })
-                            @Html.ValidationMessageFor(model => model.Item3.cvv, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Item3.cvv, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "3", id = "ed4" } })
+                            @Html.ValidationMessageFor(model => model.Item3.cvv, "", new { @class = "text-danger" ,id="validationm"})
                         </div>
                     </div>
 
