@@ -39,7 +39,7 @@ namespace BakerySystem.Controllers
                
             }
             
-            return View(new Tuple<List<BKRY_ITEMS>, SYS_USR_INFO>(bkryList, bkryuser));
+            return View(new Tuple<List<BKRY_ITEMS>, SYS_USR_INFO,BKRY_CREDITCARDINFO, BKRY_ORDER>(bkryList, bkryuser,null,null));
         }
         public ActionResult CreateOrder()
         {
