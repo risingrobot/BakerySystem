@@ -23,7 +23,7 @@ namespace BakerySystem.Controllers
             {
                 ((List<int>)Session["Cart"]).Add(id);
             }
-            return null;
+            return Content(Session["Cart"] != null ? ((List<int>)Session["Cart"]).Count.ToString() : "0");
         }
         public ActionResult RemoveItemCart(int id)
         {
@@ -31,12 +31,12 @@ namespace BakerySystem.Controllers
             {
                 ((List<int>)Session["Cart"]).Remove(id);
             }
-            return null;
+            return Content(Session["Cart"] != null ? ((List<int>)Session["Cart"]).Count.ToString() : "0");
         }
         public ActionResult ClearCart()
         {
             Session["Cart"] = null;
-            return null;
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult GetCartData()
         {

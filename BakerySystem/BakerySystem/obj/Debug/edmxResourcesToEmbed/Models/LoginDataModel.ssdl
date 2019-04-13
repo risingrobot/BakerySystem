@@ -83,12 +83,17 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-    <Property Name="UserPassowrd" Type="nchar" MaxLength="10" />
-    <Property Name="MachineIP" Type="nvarchar" MaxLength="50" />
-    <Property Name="OperatingSystem" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="UserPassowrd" Type="nvarchar(max)" />
+    <Property Name="MachineIP" Type="nvarchar(max)" />
+    <Property Name="OperatingSystem" Type="nvarchar(max)" />
     <Property Name="LoginTime" Type="datetime" />
-    <Property Name="LoginErrorMessage" Type="nvarchar" MaxLength="500" />
+    <Property Name="LoginErrorMessage" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="phone" Type="nvarchar(max)" />
+    <Property Name="address" Type="nvarchar(max)" />
+    <Property Name="street" Type="nvarchar(max)" />
+    <Property Name="postCode" Type="nvarchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERYSYSTEM\BAKERYSYSTEM\APP_DATA\BKRY_MNGT_SYS.MDF.dbo.GetOrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->

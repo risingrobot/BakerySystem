@@ -245,6 +245,7 @@ C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\b
 C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.dll
 C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.pdb
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\BakerySystem.dll.config
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\BakerySystem.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\BakerySystem.pdb
@@ -255,7 +256,6 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\csi.exe.config
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\csi.rsp
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
@@ -323,8 +323,8 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csprojAssemblyReference.cache
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.pdb
+C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csprojAssemblyReference.cache

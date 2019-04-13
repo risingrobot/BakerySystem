@@ -14,6 +14,7 @@ namespace BakerySystem.Controllers
         public ActionResult Index()
         {
             List<BKRY_ITEMS> bkryList = new List<BKRY_ITEMS>();
+            SYS_USR_INFO bkryuser = new SYS_USR_INFO();
             if (Session != null && Session["Cart"] != null && ((List<int>)Session["Cart"]).Count > 0)
             {
                 List<int> itemids = ((List<int>)Session["Cart"]);
@@ -29,8 +30,16 @@ namespace BakerySystem.Controllers
                 }
 
             }
+            if (Session != null && Session["userid"] != null && Session["ltype"] != null && Session["ltype"] != "" && Session["ltype"].ToString() == "2")
+            {
+                using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+                {
+                    bkryuser = db.SYS_USR_INFO.Find(Convert.ToInt32((Session["userid"])));
+                }
+               
+            }
             
-            return View(bkryList);
+            return View(new Tuple<List<BKRY_ITEMS>, SYS_USR_INFO>(bkryList, bkryuser));
         }
         public ActionResult CreateOrder()
         {

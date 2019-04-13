@@ -6,12 +6,6 @@
     ViewBag.Title = "Bakery Management System";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
     <title>Login</title>
     <style>
         #login-div {
@@ -21,14 +15,13 @@
             border: 1px solid #ccc;
             padding: 10px 10px;
         }
+
         .field-validation-error {
-            color:red;
+            color: red;
         }
     </style>
-</head>
-<body>
     <div id="login-div">
-        @using (Html.BeginForm("Autherize", "Login",FormMethod.Post))
+        @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
         {
             <table>
                 <tr>
@@ -61,7 +54,7 @@
                         <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
                     </td>
                 </tr>
-                <tr>                    
+                <tr>
                     <td></td>
                     <td>
                         <div class="col-md-12">
@@ -80,8 +73,4 @@
         }
 
     </div>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-</body>
-</html>
+

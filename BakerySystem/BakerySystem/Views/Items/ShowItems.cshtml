@@ -70,7 +70,8 @@
                 'id': data
             },
             success: function (msg) {
-                location.reload(true);
+                $('#cartvalue').text(msg);
+                $('#shoppingcart').show();
             }
         });
     }
@@ -80,7 +81,7 @@
             type: 'POST',
             url: '/ShowItems/ClearCart',
             success: function (msg) {
-                location.reload(true);
+                $('#shoppingcart').hide();
             }
         });
     }

@@ -5,49 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Bakery System</title>
     @*<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>*@
-      
-  
+        <script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>*@
+
+
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
     @*<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
-    
-      @*-------------*@
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
+
+    @*-------------*@
     <script src="~/Scripts/jquery-1.12.4.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script src="~/Scripts/notify.min.js"></script>
 
-     <style>
-         .ui-dialog .ui-dialog-content {
-             border: 0;
-             padding: .5em 1em;
-             background: #454d55;
-             overflow: auto;
-             zoom: 1;
-         }
-         .footer {
-             position: fixed;
-             left: 0;
-             bottom: 0;
-             width: 100%;
-             text-align: center;
-         }
+    <style>
+        .ui-dialog .ui-dialog-content {
+            border: 0;
+            padding: .5em 1em;
+            background: #454d55;
+            overflow: auto;
+            zoom: 1;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
     </style>
     <script>
 
-       
+
         function ShowCart() {
             window.location.href = '/ShowItems/ShowCategoryForm';
         }
     </script>
 
 
-   
+
 </head>
 
 <body>
@@ -77,8 +78,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/Home/Index">Home</a></li>
                 </ul>
-
-                @if (Session["userID"] != null)
+                @if (Session["userID"] != null && Session["ltype"] != null && Session["ltype"].ToString() == "1")
                 {
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/Category/Index">Category</a></li>
@@ -90,39 +90,75 @@
                         <li><a href="/Reports/Index">Reports</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@Url.Action("LogOut","Login")">LogOut</a></li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav navbar-right"><li><a href="/Login/Index">Login</a></li></ul>
-                    <ul class="nav navbar-nav">
-                        <li><a href="/SignUp/Index">Create Member</a></li>
+                        <li><a href="/SignUp/ShowProfile">Show Users</a></li>
                     </ul>
 
                 }
+
+                @if (Session["userID"] == null)
+                {
+                    <ul class="nav navbar-nav">
+                        <li><a href="/SignUp/Index">Create Member</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right"><li><a href="/Login/Index">Login</a></li></ul>
+                }
+                else
+                {
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("LogOut", "Login")">LogOut</a></li>
+                    </ul>
+                }
+
+                @if(Session["userID"] != null && Session["ltype"] != null && Session["ltype"].ToString() == "2")
+                {
+                <ul class="nav navbar-nav">
+                    <li><a href="/SignUp/Index/@Session["userID"]">Edit Member</a></li>
+                </ul>
+                }
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index","Order")">Find Order</a></li>
+                    <li><a href="@Url.Action("Index", "Order")">Find Order</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    @if (Session["Cart"] != null && ((List<int>
-        )Session["Cart"]) != null && ((List<int>
-            )Session["Cart"]).Count > 0)
-            {
-            <a class='btn btn-warning btn-sm' style='margin-left:5px' onclick=ShowCart()><i class='fa fa-cart-plus'></i> Cart @(((List<int>)Session["Cart"]).Count)</a>
-            }
-            <div class="container body-content">
-                @RenderBody()
-                <hr />
-                <div id="login_for_review" class="modal hide" role="dialog">
+    @{
+        string show = "none";
+        if (Session["Cart"] != null && ((List<int>)Session["Cart"]) != null && ((List<int>)Session["Cart"]).Count > 0)
+        {
+            show = "block";
+        }
+        else
+        {
+            show = "none";
+        }
 
-                </div>
-                <div class="footer" >
-                    <p><b>&copy; @DateTime.Now.Year - Bakery System</b></p>
-                </div>
-            </div>
+    }
+    <div id="shoppingcart" style="display:@show">
+        <a class='btn btn-warning btn-sm' style='margin-left:5px' onclick=ShowCart()>
+            <i class='fa fa-cart-plus'></i>Cart<p id="cartvalue">
+                @{
+                    string value = "0";
+                    if (Session["Cart"] != null)
+                    {
+                        value = (((List<int>)Session["Cart"]).Count).ToString();
+                    }
+                }
+                @value
+            </p>
+
+        </a>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <div id="login_for_review" class="modal hide" role="dialog">
+
+        </div>
+        <div class="footer">
+            <p><b>&copy; @DateTime.Now.Year - Bakery System</b></p>
+        </div>
+    </div>
 
 </body>
 </html>

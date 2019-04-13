@@ -1,4 +1,4 @@
-﻿@model System.Collections.Generic.List<BakerySystem.Models.BKRY_ITEMS>
+﻿@model  Tuple <List<BakerySystem.Models.BKRY_ITEMS>,BakerySystem.Models.SYS_USR_INFO>
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -104,11 +104,11 @@
         <p> Please fill in this form to checkout</p>
         <div class="container">
             <label> <b> Name</b> </label>
-            <input type="text" placeholder="Enter Name" name="name" required>
+            <input type="text" placeholder="Enter Name" value="@Model.Item2.UserName" name="name" required>
             <label> <b> Phone</b> </label>
-            <input type="text" placeholder="Enter Phone" name="phone" required>
+            <input type="text" placeholder="Enter Phone" value="@Model.Item2.phone" name="phone" required>
             <label> <b> Email</b> </label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+            <input type="text" placeholder="Enter Email" value="@Model.Item2.email" name="email" required>
             <label> <b> Address</b> </label>
             <input type="text" placeholder="Enter Address" name="address" required>
             <label> <b> Stree</b> </label>
@@ -157,7 +157,7 @@
         </tr>
         @{ 
             decimal total = 0;
-            foreach (BakerySystem.Models.BKRY_ITEMS item in Model)
+            foreach (BakerySystem.Models.BKRY_ITEMS item in Model.Item1)
             {
                total=  total + ((decimal)item.price * (decimal)item.quantity);
         <tr>

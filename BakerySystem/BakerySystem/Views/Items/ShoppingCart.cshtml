@@ -61,8 +61,8 @@
         $.ajax({
             type: 'POST',
             url: '/ShowItems/ClearCart',
-            success: function (msg) {
-                Window.location.href = '/Home/Index'
+            success: function (msg) {              
+                $(location).attr("href", '/Home/Index');
             }
         });
     }
@@ -79,6 +79,8 @@
                     Window.location.href = '/Home/Index'
                 } else {
                     CartsTable.ajax.reload();
+                    $('#cartvalue').text(msg);
+                    $('#shoppingcart').show();
                 }
 
             }

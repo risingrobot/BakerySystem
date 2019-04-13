@@ -19,19 +19,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SYS_USR_INFO">
-      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.SYS_USR_INFO">
-        <MappingFragment StoreEntitySet="SYS_USR_INFO">
-          <ScalarProperty Name="LoginErrorMessage" ColumnName="LoginErrorMessage" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="UserPassowrd" ColumnName="UserPassowrd" />
-          <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
-          <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
-          <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="BKRY_CATEGORY">
       <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.BKRY_CATEGORY">
         <MappingFragment StoreEntitySet="BKRY_CATEGORY">
@@ -110,6 +97,24 @@
           <ScalarProperty Name="cardname" ColumnName="cardname" />
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SYS_USR_INFO">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.SYS_USR_INFO">
+        <MappingFragment StoreEntitySet="SYS_USR_INFO">
+          <ScalarProperty Name="postCode" ColumnName="postCode" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="LoginErrorMessage" ColumnName="LoginErrorMessage" />
+          <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+          <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
+          <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
+          <ScalarProperty Name="UserPassowrd" ColumnName="UserPassowrd" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

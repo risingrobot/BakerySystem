@@ -21,5 +21,10 @@ namespace BakerySystem.Models
         public string OperatingSystem { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
         public string LoginErrorMessage { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
+        public string address { get; set; }
+        public string street { get; set; }
+        public string postCode { get; set; }
     }
 }

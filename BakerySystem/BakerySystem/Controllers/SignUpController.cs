@@ -13,7 +13,22 @@ namespace BakerySystem.Controllers
     public class SignUpController : Controller
     {
         // GET: SignUp
-        public ActionResult Index()
+        public ActionResult Index(int id=0)
+        {
+            SYS_USR_INFO obj = new SYS_USR_INFO();
+            if (id != 0)
+            {
+                using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+                {
+                    obj = db.SYS_USR_INFO.Where(x=>x.UserId == id).FirstOrDefault();
+                }
+                return View(obj);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateUser(SYS_USR_INFO objOn)
         {
             string ipAddress = Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
             if (string.IsNullOrEmpty(ipAddress))
@@ -32,45 +47,40 @@ namespace BakerySystem.Controllers
         };
 
             string userAgentText = Request.UserAgent;
-
+            string osVersion = "";
             if (userAgentText != null)
             {
                 int startPoint = userAgentText.IndexOf('(') + 1;
                 int endPoint = userAgentText.IndexOf(';');
 
-                string osVersion = userAgentText.Substring(startPoint, (endPoint - startPoint));
-                //string friendlyOsName = osList[osVersion];
-
-                SYS_USR_INFO info = new SYS_USR_INFO() { MachineIP = ipAddress, OperatingSystem = osVersion };
-                return View("~/Views/SignUp/Index.cshtml", info);
+                osVersion = userAgentText.Substring(startPoint, (endPoint - startPoint));
+                //string friendlyOsName = osList[osVersion];                
             }
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult CreateUser(SYS_USR_INFO objOn)
-        {
             SYS_USR_INFO userinfo = new SYS_USR_INFO();
-
-
 
                 try
                 {
                     using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
                     {
-                        SYS_USR_INFO obj = new SYS_USR_INFO();
-
-                       
-                    //  obj.OrderDetails = JsonConvert.SerializeObject(bkryList);
-                    obj.UserName = objOn.UserName;
-                    obj.UserPassowrd = objOn.UserPassowrd;
-                    obj.MachineIP = objOn.MachineIP;
-                    obj.OperatingSystem = objOn.OperatingSystem;
-                    obj.LoginTime = DateTime.Now;
-                    obj.LoginErrorMessage = JsonConvert.SerializeObject(userinfo);
-                    db.SYS_USR_INFO.Add(obj);
-                    if (db.SYS_USR_INFO.Where(x => x.UserName == objOn.UserName).ToList().Count == 0)
+                    SYS_USR_INFO obj = new SYS_USR_INFO
                     {
+                        UserId = (objOn.UserId > 0) ? objOn.UserId : 0,
+                        UserName = objOn.UserName,
+                        UserPassowrd = objOn.UserPassowrd,
+                        MachineIP = ipAddress,
+                        OperatingSystem = osVersion,
+                        LoginTime = DateTime.Now,
+                        LoginErrorMessage = JsonConvert.SerializeObject(userinfo),
+                        address = objOn.address,
+                        email = objOn.email,
+                        street = objOn.street,
+                        phone = objOn.phone,
+                        postCode = objOn.postCode                        
+                    };
+                    
+                    if (db.SYS_USR_INFO.Where(x => x.UserName == obj.UserName).ToList().Count == 0)
+                    {
+                        db.SYS_USR_INFO.Add(obj);
                         db.Entry(obj).State = EntityState.Added;
 
                         db.SaveChanges(); // fuck you exception fuck you Bitch
@@ -78,9 +88,12 @@ namespace BakerySystem.Controllers
                     }
                     else
                     {
-                        Session["Message"] = "Username already exists UserName# is " + obj.UserName.ToString();
+                        db.SYS_USR_INFO.Remove(db.SYS_USR_INFO.Where(x=>x.UserName == obj.UserName).ToList().FirstOrDefault());
+                        db.SYS_USR_INFO.Add(obj);
+                        db.SaveChanges(); // fuck you exception fuck you Bitch
+                        Session["Message"] = "Updated Successfully your UserName# is " + obj.UserName.ToString();                        
                     }
-                    return RedirectToAction("Index", "home");
+                    return RedirectToAction("LogOut", "Login");
                 }
                 }
                 catch (Exception ex) { return Json(new { success = true, message = "UnSuccessfully" + ex.ToString() }, JsonRequestBehavior.AllowGet); }
@@ -99,14 +112,39 @@ namespace BakerySystem.Controllers
                 else return Json(0);
             }
         }
+        public JsonResult DeleteUser(string id)
+        {
+            using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+            {
 
+                var search = db.SYS_USR_INFO.ToList().Where(x => x.UserId == Convert.ToInt32(id)).FirstOrDefault();
+                db.SYS_USR_INFO.Remove(search);
+                db.SaveChanges();                
+                return Json(new { success = true, message = "Deleted Successfully" }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult ShowProfile()
+        {           
+            return View();
+        }
+        [HttpGet]
+        public ActionResult GetData()
+        {
+            List<SYS_USR_INFO> ListSYS_USR_INFO = new List<SYS_USR_INFO>();
+            using (BKRY_MNGT_SYSEntities db = new BKRY_MNGT_SYSEntities())
+            {
+                ListSYS_USR_INFO = db.SYS_USR_INFO.ToList();
+            }
+            return Json(new { data = ListSYS_USR_INFO }, JsonRequestBehavior.AllowGet);
+        }
 
         //[AllowAnonymous]
         //public async Task<JsonResult> UserAlreadyExistsAsyncOne(string username)
         //{
         //    var result =
         //        await FindByUserName(username);
-               
+
         //    return Json(result == null, JsonRequestBehavior.AllowGet);
         //}
 
