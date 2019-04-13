@@ -83,14 +83,14 @@ namespace BakerySystem.Controllers
                         db.SYS_USR_INFO.Add(obj);
                         db.Entry(obj).State = EntityState.Added;
 
-                        db.SaveChanges(); // fuck you exception fuck you Bitch
+                        db.SaveChanges(); 
                         Session["Message"] = "Saved Successfully your UserName# is " + obj.UserName.ToString();                        
                     }
                     else
                     {
                         db.SYS_USR_INFO.Remove(db.SYS_USR_INFO.Where(x=>x.UserName == obj.UserName).ToList().FirstOrDefault());
                         db.SYS_USR_INFO.Add(obj);
-                        db.SaveChanges(); // fuck you exception fuck you Bitch
+                        db.SaveChanges(); 
                         Session["Message"] = "Updated Successfully your UserName# is " + obj.UserName.ToString();                        
                     }
                     return RedirectToAction("LogOut", "Login");

@@ -254,32 +254,14 @@
     <Content Include="Images\b1.jpg" />
     <Content Include="Images\b2.jpg" />
     <Content Include="Images\b3.jpg" />
-    <Content Include="Images\b4.jpg" />
     <Content Include="Images\banner-bg.jpg" />
     <Content Include="Images\Cakes.jpg" />
     <Content Include="Images\call-action-bg.jpg" />
     <Content Include="Images\ABC.jpg" />
-    <Content Include="Images\Loading.gif" />
     <Content Include="Images\logo.png" />
-    <Content Include="Images\p3.jpg" />
-    <Content Include="Images\pattern-bg.jpg" />
     <Content Include="Images\pizza.jpg" />
-    <Content Include="Images\play-btn.png" />
-    <Content Include="Images\play.png" />
-    <Content Include="Images\r1.png" />
     <Content Include="Images\review-bg.jpg" />
-    <Content Include="Images\screen-bg1.png" />
-    <Content Include="Images\t1.jpg" />
-    <Content Include="Images\t1.png" />
-    <Content Include="Images\t2.jpg" />
-    <Content Include="Images\t2.png" />
-    <Content Include="Images\t3.jpg" />
-    <Content Include="Images\t3.png" />
-    <Content Include="Images\t4.jpg" />
     <Content Include="Images\top-banner.jpg" />
-    <Content Include="Images\ui-icons_444444_256x240.png" />
-    <Content Include="Images\user.png" />
-    <Content Include="Images\video-bg.jpg" />
     <Content Include="Models\LoginDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LoginDataModel.edmx</DependentUpon>
@@ -394,7 +376,6 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
     <Content Include="Views\Order\OrderDetails.cshtml" />
-    <Content Include="Views\Shared\newLayout.cshtml" />
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js.map" />
@@ -405,12 +386,8 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\SignUp\Index.cshtml" />
     <Content Include="Views\SignUp\ShowProfile.cshtml" />
-    <Content Include="Views\Checkout\index2.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DB\" />
-    <Folder Include="Views\ShowItems\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
