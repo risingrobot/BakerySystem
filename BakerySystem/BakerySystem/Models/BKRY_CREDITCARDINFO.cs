@@ -24,6 +24,8 @@ namespace BakerySystem.Models
         [Display(Name = "Card Number")]
         public string cardnumber { get; set; }
         public string expmonth { get; set; }
+        [Required(ErrorMessage = "Please Enter Expiry Date."), MaxLength(30)]
+        [Display(Name = "Expiry Date MMYY")]
         public string expyear { get; set; }
         [Required(ErrorMessage = "Please Enter CVV Number."), MaxLength(30)]
         [Display(Name = "CVV Number")]
