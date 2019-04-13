@@ -11,20 +11,39 @@ namespace BakerySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class SYS_USR_INFO
     {
+       
         public int UserId { get; set; }
+        [Required(ErrorMessage = "Please enter name"), MaxLength(30)]
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
+        [Required(ErrorMessage = "Please enter Password"), MaxLength(30)]
+        [Display(Name = "Password")]
         public string UserPassowrd { get; set; }
         public string MachineIP { get; set; }
         public string OperatingSystem { get; set; }
         public Nullable<System.DateTime> LoginTime { get; set; }
         public string LoginErrorMessage { get; set; }
+        [Required(ErrorMessage = "Please enter email"), MaxLength(30)]
+        [Display(Name = "Email")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]
         public string email { get; set; }
+        [Required(ErrorMessage = "Please enter phone/cell no"), MaxLength(30)]
+        [Display(Name = "Phone/Cell No.")]
+        [DataType(DataType.PhoneNumber)]
         public string phone { get; set; }
+        [Required(ErrorMessage = "Please enter address"), MaxLength(30)]
+        [Display(Name = "Address")]
         public string address { get; set; }
+        [Required(ErrorMessage = "Please enter street no"), MaxLength(30)]
+        [Display(Name = "Street No.")]
         public string street { get; set; }
+        [Display(Name = "Postal Code")]
+        [Required(ErrorMessage = "Please enter postal code"), MaxLength(30)]
         public string postCode { get; set; }
     }
 }

@@ -23,11 +23,12 @@
         $('#phone,#postCode').addClass("textboxWidth");
     });
 
-     function UserCheck() {
+    function UserCheck() {
+
         $("#Status").html("Checking...");
         $.post("@Url.Action("UserAlreadyExistsAsync", "SignUp")",
             {
-                userdata: $("#Username").val()
+                user: $("#Username").val()
             },
         function (data) {
             if (data == 0) {
@@ -43,6 +44,42 @@
     }
 
 
+
+
+     $(document).ready(function () {
+           $('#username').keyup(function () {
+             var userName = $(this).val();
+
+             if (userName.length >= 3) {
+                 $.ajax({
+                     url: 'http://localhost:52729/RegistrationService.asmx/UserNameExists',
+                     method: 'post',
+                     data: { userName: userName },
+                     dataType: 'json',
+                     success: function (data) {
+                         debugger
+                         var divele = $('#divElement');
+                          
+                         if (data.Usernameinuse) {
+                             divele.text(userName + 'is already exists')
+                             divele.css('color', 'red')
+
+                         }
+                         else {
+                             divele.text(userName + 'is avaliable')
+                             divele.css('color', 'green')
+
+                         }
+                     },
+                     error: function (err) {
+                         alert(err);
+
+                     }
+
+                 });
+             }
+         });
+     });
 
 </script>
 
@@ -62,12 +99,13 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.UserName, new { htmlAttributes = new { @onchange = "UserCheck(this)" } })
+        @Html.LabelFor(model => model.UserName)
         <div class="col-md-10">
-            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" ,@OnChange= "UserCheck(this)" ,Name="username",id="username"} })
             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div id="divElement"></div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.UserPassowrd, htmlAttributes: new { @class = "control-label col-md-2" })

@@ -164,7 +164,6 @@ C:\Users\Usmani\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debu
 C:\Users\Usmani\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CopyComplete
 C:\Users\Usmani\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.dll
 C:\Users\Usmani\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.pdb
-C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\BakerySystem.dll.config
 C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\BakerySystem.dll
 C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\bin\BakerySystem.pdb
@@ -328,3 +327,5 @@ C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.dll
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.pdb
 C:\Users\User\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\BakerySystem\BakerySystem\BakerySystem\obj\Debug\BakerySystem.csprojResolveAssemblyReference.cache
