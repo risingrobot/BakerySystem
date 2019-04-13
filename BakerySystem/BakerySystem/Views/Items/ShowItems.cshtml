@@ -9,8 +9,14 @@
 <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 <h2>Items</h2>
+@if (Session["Cart"] != null && ((List<int>
+        )Session["Cart"]) != null && ((List<int>
+            )Session["Cart"]).Count > 0)
+{
 <a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=ClearCart()><i class="fa fa-remove" style="font-size:24px;color:red"></i><i>ClearCart Cart</i></a>
-<table id="itemsTable" class="table table-striped table-bordered" style="width:100%">
+}
+
+<table id="itemsTable" class="table table-striped table-bordered table-responsive table-dark" style="width:100%">
     <thead>
         <tr>
             <th>Item Name</th>
