@@ -6,6 +6,14 @@
     ViewBag.Title = "Bakery Management System";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script>
+    $(document).ready(function () {
+        $('#id_reset').click(function () {
+            $('#UserName').val('');
+            $('#UserPassowrd').val('');
+        });
+    });
+    </script>
     <title>Login</title>
     <style>
         #login-div {
@@ -62,7 +70,7 @@
                                 <input type="submit" name="name" class="btn btn-outline-primary" style="width:150px" value="Login" />
                             </div>
                             <div class="col-md-6" style="width:100%;float:right">
-                                <input type="reset" name="name" class="btn btn-outline-danger" style="width:150px" value="Clear" />
+                                <input type="reset" id="id_reset" name="reset" class="btn btn-outline-danger" style="width:150px" value="Clear" />
                             </div>
                         </div>
 

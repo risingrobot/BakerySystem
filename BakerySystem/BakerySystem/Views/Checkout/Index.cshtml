@@ -1,17 +1,17 @@
-﻿@model  Tuple <List<BakerySystem.Models.BKRY_ITEMS>,BakerySystem.Models.SYS_USR_INFO, BakerySystem.Models.BKRY_CREDITCARDINFO, BakerySystem.Models.BKRY_ORDER>
+﻿@model  Tuple<List<BakerySystem.Models.BKRY_ITEMS>, BakerySystem.Models.SYS_USR_INFO, BakerySystem.Models.BKRY_CREDITCARDINFO, BakerySystem.Models.BKRY_ORDER>
 @{
     ViewBag.Title = "View";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    HtmlHelper.ClientValidationEnabled = false;
 }
 
 <style>
     body {
-        font-family: Arial, Helvetica, sans-serif;       
+        font-family: Arial, Helvetica, sans-serif;
     }
+
     .errorClass {
         border: 1px solid red;
-        border-width: 3px; 
+        border-width: 3px;
     }
     /* Full-width input fields */
     input[type=text], input[type=password], input[type=number] {
@@ -41,47 +41,36 @@
         .registerbtn:hover {
             opacity: 1;
         }
+
     #divtotal {
         background-color: white;
         width: 200px;
-        color:cornflowerblue;
+        color: cornflowerblue;
         padding: 25px;
         margin: 25px;
-        float:right;
+        float: right;
     }
-
-
 </style>
 <script>
- 
-    $(document).ready(function () {            
-        $validateHiddenInputs: false
-            $('input[type=radio][name=nm_rad_pay]').change(function () {
-                if (this.value == '1') {                    
-                    $('#creditinfo').show();
-                    @HtmlHelper.ClientValidationEnabled=true;
-                    $("#creditinfo").validate({
-                        ignore: ':hidden',
-                        submitHandler: function (form) {
-                            //To do
-                        }
-                    });
-                } else {
-                    $('#creditinfo').hide();
-                   @HtmlHelper.ClientValidationEnabled =false;
-                    var form = $('#my_form_id').get(0);
-                    $(form).removeData('validate');
-                }
-            });
-            $('#card_number').change(function ()
-            {
-                var val = validateCardNumber($('#card_number').val());
-                if (!val) {
-                    $('#card_number').addClass('required');                    
-                }
-            });
-            
+
+    $(document).ready(function () {        
+        $('input[type=radio][name=nm_rad_pay]').change(function () {
+            if (this.value == '1') {
+                $('#creditinfo').load('/Checkout/Getcreditinfo');
+                $('#creditinfo').show();
+
+            } else {
+                $('#creditinfo').hide();
+            }
         });
+        $('#card_number').change(function () {
+            var val = validateCardNumber($('#card_number').val());
+            if (!val) {
+                $('#card_number').addClass('required');
+            }
+        });
+
+    });
     function validateCardNumber(number) {
         var regex = new RegExp("^[0-9]{16}$");
         if (!regex.test(number))
@@ -104,89 +93,46 @@
         }
         return (sum % 10) == 0;
     }
-    
-    </script>
+
+</script>
 <div id="details">
     @using (Ajax.BeginForm("CreateOrder", "Checkout", new AjaxOptions { OnSuccess = "OnComplete" }))
     {
-      @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="col-md-6" style="float:left">
-        <h2> Checkout</h2>
-        <p> Please fill in this form to checkout</p>
-        <div class="container">
-            <label class="control-label"> <b> Name</b> </label>
-            <input type="text" class="form-control" placeholder="Enter Name" value="@Model.Item2.UserName" name="name" required>
-            <label class="control-label"> <b> Phone</b> </label>
-            <input type="text" class="form-control" placeholder="Enter Phone" value="@Model.Item2.phone" name="phone" required>
-            <label class="control-label"> <b> Email</b> </label>
-            <input type="text" class="form-control" placeholder="Enter Email" value="@Model.Item2.email" name="email" required>
-            <label class="control-label"> <b> Address</b> </label>
-            <input type="text" class="form-control" placeholder="Enter Address" name="address" required>
-            <label class="control-label"> <b> Stree</b> </label>
-            <input type="text" class="form-control" placeholder="Enter street" name="street" required>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-6" style="float:left">
+            <h2> Checkout</h2>
+            <p> Please fill in this form to checkout</p>
+            <div class="container">
+                <label class="control-label"> <b> Name</b> </label>
+                <input type="text" class="form-control" placeholder="Enter Name" value="@Model.Item2.UserName" name="name" required>
+                <label class="control-label"> <b> Phone</b> </label>
+                <input type="text" class="form-control" placeholder="Enter Phone" value="@Model.Item2.phone" name="phone" required>
+                <label class="control-label"> <b> Email</b> </label>
+                <input type="text" class="form-control" placeholder="Enter Email" value="@Model.Item2.email" name="email" required>
+                <label class="control-label"> <b> Address</b> </label>
+                <input type="text" class="form-control" placeholder="Enter Address" name="address" required>
+                <label class="control-label"> <b> Stree</b> </label>
+                <input type="text" class="form-control" placeholder="Enter street" name="street" required>
 
-            <label class="control-label" for="email"> <b> PostCode</b> </label>
-            <input type="number" class="form-control" placeholder="Enter PostCode" name="postcode" required style="width:100%">
-            <br><br>
-            <div>
-                <label for="email"> <b> Payment Method</b> </label><br>
-                <input type="radio" name="nm_rad_pay" value="0" checked> Cash on Delivery<br>
-                <input type="radio" name="nm_rad_pay" value="1"> Credit Card<br>
-            </div>
-
-
-        </div>
-    </div>
-        <div class="col-md-6" style="float:right">
-            <div id="creditinfo" style="display:none">
-                <div class="form-horizontal">
-                    <h4>Credit Card Info</h4> 
-                    <br>
-                    <br>
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" , id = "vs1" })
-                    <div class="form-group">
-                        <b> @Html.LabelFor(model => model.Item3.cardname, htmlAttributes: new { @class = "control-label" })</b>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Item3.cardname, new { htmlAttributes = new { @class = "form-control",id = "ed1" } })
-                            @Html.ValidationMessageFor(model => model.Item3.cardname, "", new { @class = "text-danger", id = "validationm1" ,})
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <b>@Html.LabelFor(model => model.Item3.cardnumber, htmlAttributes: new { @class = "control-label" })</b>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Item3.cardnumber, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "16", id = "ed2" } })
-                            @Html.ValidationMessageFor(model => model.Item3.cardnumber, "", new { @class = "text-danger", id = "validationm2" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <b> @Html.LabelFor(model => model.Item3.expyear, htmlAttributes: new { @class = "control-label",id = "ed2" })</b>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Item3.expyear, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "4", id = "ed3" } })
-                            @Html.ValidationMessageFor(model => model.Item3.expyear, "", new { @class = "text-danger", id = "validationm0" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <b> @Html.LabelFor(model => model.Item3.cvv, htmlAttributes: new { @class = "control-label" })</b>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Item3.cvv, new { htmlAttributes = new { @class = "form-control", @type = "number", @maxlength = "3", id = "ed4" } })
-                            @Html.ValidationMessageFor(model => model.Item3.cvv, "", new { @class = "text-danger" ,id="validationm"})
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
-                        </div>
-                    </div>
+                <label class="control-label" for="email"> <b> PostCode</b> </label>
+                <input type="number" class="form-control" placeholder="Enter PostCode" name="postcode" required style="width:100%">
+                <br><br>
+                <div>
+                    <label for="email"> <b> Payment Method</b> </label><br>
+                    <input type="radio" name="nm_rad_pay" value="0" checked> Cash on Delivery<br>
+                    <input type="radio" name="nm_rad_pay" value="1"> Credit Card<br>
                 </div>
             </div>
         </div>
-       
+        <div class="col-md-6" style="float:right">
+            <div id="creditinfo" style="display:none">
+
+            </div>
+        </div>
+
         <button type="submit" class="registerbtn"> Checkout</button>
     }
-   
+
 </div>
 <div id="ShoppingCart">
     <table style="width:100%">
@@ -196,20 +142,20 @@
             <th>Price</th>
             <th>Product</th>
         </tr>
-        @{ 
+        @{
             decimal total = 0;
             foreach (BakerySystem.Models.BKRY_ITEMS item in Model.Item1)
             {
-               total=  total + ((decimal)item.price * (decimal)item.quantity);
-        <tr>
-            <th>@item.name</th>
-            <th>@item.quantity</th>
-            <th>@item.price</th>
-            <th><img style="width:70px;height:70px;" src="/Home/getImage2/@item.Id"></th>
+                total = total + ((decimal)item.price * (decimal)item.quantity);
+                <tr>
+                    <th>@item.name</th>
+                    <th>@item.quantity</th>
+                    <th>@item.price</th>
+                    <th><img style="width:70px;height:70px;" src="/Home/getImage2/@item.Id"></th>
 
-        </tr>
+                </tr>
             }
-            }
+        }
     </table>
     <div class="" id="divtotal">Total $ @total</div>
 </div>

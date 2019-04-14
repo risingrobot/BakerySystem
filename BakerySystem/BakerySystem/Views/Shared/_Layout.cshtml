@@ -98,7 +98,7 @@
                 @if (Session["userID"] == null)
                 {
                     <ul class="nav navbar-nav">
-                        <li><a href="/SignUp/Index">Create Member</a></li>
+                        <li><a href="/SignUp/Index">Registration</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right"><li><a href="/Login/Index">Login</a></li></ul>
                 }
@@ -110,14 +110,20 @@
                     </ul>
                 }
 
-                @if(Session["userID"] != null && Session["ltype"] != null && Session["ltype"].ToString() == "2")
+                @if (Session["userID"] != null && Session["ltype"] != null && Session["ltype"].ToString() == "2")
                 {
-                <ul class="nav navbar-nav">
-                    <li><a href="/SignUp/Index/@Session["userID"]">Edit Member</a></li>
-                </ul>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/SignUp/Index/@Session["userID"]">Edit Member</a></li>
+                    </ul>
                 }
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="@Url.Action("Index", "Order")">Find Order</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("contactus", "Home")">Find Order</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("aboutus", "Home")">Find Order</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

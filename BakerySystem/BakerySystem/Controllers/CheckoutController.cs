@@ -86,10 +86,10 @@ namespace BakerySystem.Controllers
                     {
                         BKRY_CREDITCARDINFO objC = new BKRY_CREDITCARDINFO();
                         objC.OrderID = obj.Id;
-                        objC.cardname = Request["Item3.cardname"].ToString();
-                        objC.cardnumber = Request["Item3.cardnumber"].ToString();                        
-                        objC.expyear = Request["Item3.expyear"].ToString();
-                        objC.cvv = Request["Item3.cvv"].ToString();
+                        objC.cardname = Request["cardname"].ToString();
+                        objC.cardnumber = Request["cardnumber"].ToString();                        
+                        objC.expyear = Request["expyear"].ToString();
+                        objC.cvv = Request["cvv"].ToString();
                         objC.expmonth = " ";
                         db.BKRY_CREDITCARDINFO.Add(objC);
                     }
@@ -101,6 +101,10 @@ namespace BakerySystem.Controllers
             }
             catch (Exception ex) {
                 return Json(new { success = true, message = "UnSuccessfully" }, JsonRequestBehavior.AllowGet); }
+        }
+        public ActionResult Getcreditinfo()
+        {
+            return PartialView("~/Views/Checkout/CreditCardInfo.cshtml");
         }
     }
 }

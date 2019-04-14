@@ -49,5 +49,13 @@ namespace BakerySystem.Controllers
             Session["Message"] = null;
             return null;
         }
+        public ActionResult aboutus()
+        {
+            return View();
+        }
+        public ActionResult contactus()
+        {
+            return View();
+        }
     }
 }

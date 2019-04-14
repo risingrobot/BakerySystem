@@ -23,28 +23,6 @@
         $('#phone,#postCode').addClass("textboxWidth");
     });
 
-    function UserCheck() {
-
-        $("#Status").html("Checking...");
-        $.post("@Url.Action("UserAlreadyExistsAsync", "SignUp")",
-            {
-                user: $("#Username").val()
-            },
-        function (data) {
-            if (data == 0) {
-                $("#Status").html('<font color="Green">Available !. you can take it.</font>');
-                $("#Username").css("border-color", "Green");
-
-            }
-            else {
-                $("#Status").html('<font color="Red">That name is taken.Try Another.</font>');
-                $("#Username").css("border-color", "Red");
-            }
-        });
-    }
-
-
-
 
      $(document).ready(function () {
            $('#username').keyup(function () {
@@ -61,12 +39,12 @@
                          var divele = $('#divElement');
                           
                          if (data.Usernameinuse) {
-                             divele.text(userName + 'is already exists')
+                             divele.text(userName + ' is already exists')
                              divele.css('color', 'red')
 
                          }
                          else {
-                             divele.text(userName + 'is avaliable')
+                             divele.text(userName + ' is avaliable')
                              divele.css('color', 'green')
 
                          }

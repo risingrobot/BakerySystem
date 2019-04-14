@@ -57,6 +57,12 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -386,6 +392,9 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\SignUp\Index.cshtml" />
     <Content Include="Views\SignUp\ShowProfile.cshtml" />
+    <Content Include="Views\Checkout\CreditCardInfo.cshtml" />
+    <Content Include="Views\Home\aboutus.cshtml" />
+    <Content Include="Views\Home\contactus.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

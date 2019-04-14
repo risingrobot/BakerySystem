@@ -87,7 +87,7 @@
                 { "data": "email" },
                 { "data": "address" },
                 { "data": "Delivered" },
-                { "data": "OrderId", render: function (data) { return "<a class='btn btn-info btn-sm' style='margin-left:5px' onclick=showOrderDetails(" + data + ")><i class='fa fa-cart-plus'></i> View Details</a>"; } }
+                { "data": "OrderId", render: function (data) { return "<a class='btn btn-info btn-sm' style='margin-left:5px' onclick=showOrderDetails(" + data + ")><i class='fa fa-cart-plus'></i> View Details</a><a href='Order/PrintDetails/"+data+"' class='btn btn-primary btn-sm' style='margin-left:5px'><i class='fa fa-print'></i> Print Details</a>"; } }
 
             ],
             "language": {
