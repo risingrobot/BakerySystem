@@ -11,11 +11,13 @@ namespace BakerySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CUST_FEED
     {
         public int Feedback_Id { get; set; }
         public Nullable<int> Customer_ID { get; set; }
+        [Required(ErrorMessage = "Please Provide you feedback ")]
         public string feedback { get; set; }
         public string Order_id { get; set; }
         public string Creation_Id { get; set; }

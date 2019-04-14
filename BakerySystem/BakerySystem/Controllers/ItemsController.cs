@@ -7,6 +7,8 @@ using BakerySystem.Models;
 using System.Data.Entity;
 using System.IO;
 using System.Drawing;
+using System.Data.Entity.Validation;
+using System.Web.UI;
 
 namespace BakerySystem.Controllers
 {
@@ -81,7 +83,14 @@ namespace BakerySystem.Controllers
                 else
                 {
                     db.Entry(bkt).State = EntityState.Modified;
-                    db.SaveChanges();
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (DbEntityValidationException e)
+                    {
+                        throw e;
+                    }
                     return RedirectToAction("Index");
                 }
             }

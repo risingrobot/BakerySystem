@@ -43,6 +43,7 @@ namespace BakerySystem.Models
         [Display(Name = "Street No.")]
         public string street { get; set; }
         [Display(Name = "Postal Code")]
+        [DataType(DataType.PostalCode)]
         [Required(ErrorMessage = "Please enter postal code"), MaxLength(30)]
         public string postCode { get; set; }
     }

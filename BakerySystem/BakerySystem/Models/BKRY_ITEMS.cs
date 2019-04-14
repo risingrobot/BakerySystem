@@ -11,19 +11,30 @@ namespace BakerySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class BKRY_ITEMS
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Please enter name") ]
+        [Display(Name = " Name")]
         public string name { get; set; }
+        [Required(ErrorMessage = "Please enter Price") ]
+        [Display(Name = "Price")]
         public Nullable<decimal> price { get; set; }
+        //[Required(ErrorMessage = "Please enter Image") ]
+        //[Display(Name = "Image")]
         public byte[] image { get; set; }
         public Nullable<System.DateTime> add_date { get; set; }
+        [Required(ErrorMessage = "Please enter Expiry Date") ]
+        [Display(Name = "Expiry Date")]
         public string expiry_dte { get; set; }
         public string order_num { get; set; }
         public Nullable<bool> publish { get; set; }
         public string insert_by { get; set; }
         public byte[] img_src { get; set; }
+        [Required(ErrorMessage = "Please Select Category") ]
+        [Display(Name = "Category")]
         public Nullable<long> categoryId { get; set; }
         public Nullable<int> quantity { get; set; }
     }

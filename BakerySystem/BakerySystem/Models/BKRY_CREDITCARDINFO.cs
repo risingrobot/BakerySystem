@@ -21,6 +21,7 @@ namespace BakerySystem.Models
         [Display(Name = "Card Holder Name")]
         public string cardname { get; set; }
         [Required(ErrorMessage = "Please Enter Card Number"), MaxLength(30)]
+        [DataType(DataType.CreditCard)]
         [Display(Name = "Card Number")]
         public string cardnumber { get; set; }
         public string expmonth { get; set; }

@@ -1,6 +1,8 @@
 ﻿@model BakerySystem.Models.BKRY_ITEMS
 @{
     Layout = null;
+    HtmlHelper.ClientValidationEnabled = true;
+
 }
 <style>
    
@@ -9,7 +11,14 @@
     $(function () { // will trigger when the document is ready
         $('.datepicker').datepicker(); //Initialise any date pickers
     });
+
+   
 </script>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap")
 <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 @using (Html.BeginForm("AddOrEdit", "Items", FormMethod.Post, new { onsubmit = "return SubmitForm(this)", enctype = "multipart/form-data" }))
 {
@@ -17,6 +26,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.name, new { @class = "control-label" })
         @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.name)
 
     </div>
 
@@ -35,6 +45,7 @@
         <div class="input-group">
             <span class="input-group-addon">$</span>
             @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control",@type="number" } })
+            @Html.ValidationMessageFor(model => model.price)
         </div>
     </div>
 
@@ -42,6 +53,7 @@
         @Html.LabelFor(model => model.image, new { @class = "control-label" })
         @*@Html.EditorFor(model => model.image, new { htmlAttributes = new { @class = "form-control" } })*@
         <input type="file" name="file" id="file" style="width:100%" />
+        @Html.ValidationMessageFor(model => model.image)
 
     </div>
 

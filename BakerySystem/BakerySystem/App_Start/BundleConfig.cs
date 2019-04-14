@@ -25,6 +25,18 @@ namespace BakerySystem
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+               "~/Scripts/jquery-{version}.min.js",
+               "~/Scripts/jquery-ui-1.10.4.min.js",
+               "~/Scripts/jquery.base64.js"
+               ));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate.min.js",
+                        "~/Scripts/jquery.validate.unobtrusive.min.js"
+                        ));
         }
     }
 }
