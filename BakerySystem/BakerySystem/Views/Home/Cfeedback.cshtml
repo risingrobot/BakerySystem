@@ -1,0 +1,33 @@
+﻿@model List<BakerySystem.Models.CUST_FEED>
+@{
+    ViewBag.Title = "Cfeedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    table {
+        width: 350px;
+        border-collapse: separate;
+        empty-cells: hide;
+        background-color: #454d55;
+    }
+
+    td {
+        padding: 5px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #999999;
+      
+    }
+</style>
+<h2>Customer Feedbacks</h2>
+
+<table style="width:100%">
+
+    @foreach (var item in Model)
+    {
+        <tr><td><b>Order On</b></td><td>@item.Creation_Id</td></tr>
+        <tr><td><b>Order #</b></td><<td>@item.Order_id</td></tr>
+        <tr>><td><b>FeedBack</b></td><td>@item.feedback</td></tr>
+    }
+
+</table>

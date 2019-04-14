@@ -96,6 +96,7 @@ namespace BakerySystem.Controllers
                     db.BKRY_DELIVERY.Add(dobj);
                     db.SaveChanges();
                     Session["Message"] = "Saved Successfully your Order# is "+ obj.Id.ToString();
+                    Session["Order"] = obj.Id;
                     return RedirectToAction("Index", "home");
                 }
             }
