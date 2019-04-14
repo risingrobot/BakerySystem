@@ -11,24 +11,15 @@ namespace BakerySystem.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class BKRY_CREDITCARDINFO
     {
         public int Id { get; set; }
         public int OrderID { get; set; }
-        //[Required(ErrorMessage = "Please Holder name"), MaxLength(30)]
-        [Display(Name = "Card Holder Name")]
         public string cardname { get; set; }
-        [Required(ErrorMessage = "Please Enter Card Number"), MaxLength(30)]
-        [Display(Name = "Card Number")]
         public string cardnumber { get; set; }
         public string expmonth { get; set; }
-        [Required(ErrorMessage = "Please Enter Expiry Date."), MaxLength(30)]
-        [Display(Name = "Expiry Date MMYY")]
         public string expyear { get; set; }
-        [Required(ErrorMessage = "Please Enter CVV Number."), MaxLength(30)]
-        [Display(Name = "CVV Number")]
         public string cvv { get; set; }
     }
 }
