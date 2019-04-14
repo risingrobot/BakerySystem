@@ -87,5 +87,9 @@ namespace BakerySystem.Controllers
             }
             return View(obj);
         }
+        public ActionResult Helper()
+        {
+            return View("~/Views/Home/Helper.cshtml");
+        }
     }
 }

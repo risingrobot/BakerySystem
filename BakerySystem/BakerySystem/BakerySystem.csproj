@@ -400,6 +400,7 @@
     <Content Include="Views\Shared\Cust_FeedBack.cshtml" />
     <Content Include="Views\Home\Cfeedback.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\Helper.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
