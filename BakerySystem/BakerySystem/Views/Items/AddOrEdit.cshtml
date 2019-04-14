@@ -11,7 +11,13 @@
     $(function () { // will trigger when the document is ready
         $('.datepicker').datepicker(); //Initialise any date pickers
     });
-
+    $('#id_reset').click(function () {
+        $('#name').val('');
+        $('#expiry_dte').val('');
+        $('#price').val('');
+        $('#file').val(null);      
+   
+    });
    
 </script>
 
@@ -89,7 +95,7 @@
                 <input type="submit" value="Save" class="btn btn-outline-primary" style="width:150px;text-indent:hanging" />
             </div>
             <div class="col-md-4" style="float:right;width:150px">
-                <input type="reset" value="Clear" class="btn btn-outline-warning" style="width:150px;text-indent:hanging" />
+                <input type="Button" id="id_reset" value="Clear" class="btn btn-outline-warning" style="width:150px;text-indent:hanging" />
             </div>
             <div class="col-md-2" style="float:left;width:150px">
             </div>

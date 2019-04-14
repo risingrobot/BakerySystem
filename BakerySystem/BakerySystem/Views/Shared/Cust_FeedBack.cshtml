@@ -1,12 +1,29 @@
 ﻿@model BakerySystem.Models.CUST_FEED
-
-@using (Html.BeginForm("CreateFeedback", "Home", FormMethod.Post, new { })) 
+<style>
+    .errorClass {
+        border: 1px solid red;
+        border-width: 3px;
+    }
+</style>
+<script>
+    function OnCreate() {
+        if ($('#feedback').val() == null || $('#feedback').val() == "") {
+            $('#feedback').addClass('errorClass');
+            setTimeout(function () {
+                $('#feedback').removeClass('errorClass');
+            }, 1000);
+        } else {
+            $('form').submit();
+        }
+    }
+</script>
+@using (Ajax.BeginForm("CreateFeedback", "Home", new AjaxOptions() { HttpMethod = "POST" }, new { @id = "filter-form" }))
 {
     <div class="form-horizontal">
         <h4>Customer Feedback</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-   
+
         <div class="form-group">
             <b>@Html.LabelFor(model => model.feedback, htmlAttributes: new { @class = "control-label" })</b>
             <div class="col-md-10">
@@ -17,7 +34,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-outline-primary" style="width:100%" />
+                <input type="button" value="Create" onclick="OnCreate()" class="btn btn-outline-primary" style="width:100%" />
             </div>
         </div>
     </div>

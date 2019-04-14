@@ -5,8 +5,12 @@
 
 <script type="text/javascript">
     $(function () { // will trigger when the document is ready
-       $('.datepicker').datepicker(); //Initialise any date pickers
+        $('.datepicker').datepicker(); //Initialise any date pickers
+        $('#id_reset').click(function () {
+            $('#name').val('');
+            $('#id_file').val(null); }); 
     });
+
 </script>
 
 @using (Html.BeginForm("AddOrEdit", "Category", FormMethod.Post, new { onsubmit = "return SubmitForm(this)", enctype = "multipart/form-data" }))
@@ -18,7 +22,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.image, new { @class = "control-label" })       
-        <input type="file" name="file" style="width:100%"/>
+        <input type="file" name="file" id="id_file" style="width:100%"/>
         
     </div>
     <div class="form-group">
@@ -32,7 +36,7 @@
                 <input type="submit" value="Save" class="btn btn-outline-primary" style="width:150px;text-indent:hanging" />
             </div>
             <div class="col-md-6" style="width:100%;float:right">               
-                <input type="reset" value="Clear" class="btn btn-outline-warning" style="width:150px;text-indent:hanging"  />
+                <input type="Button" id="id_reset" value="Clear" class="btn btn-outline-warning" style="width:150px;text-indent:hanging"  />
             </div>
         </div>
     </div>
