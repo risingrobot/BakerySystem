@@ -33,5 +33,6 @@ namespace BakerySystem.Models
         public virtual DbSet<GetOrderDetail> GetOrderDetails { get; set; }
         public virtual DbSet<BKRY_CREDITCARDINFO> BKRY_CREDITCARDINFO { get; set; }
         public virtual DbSet<SYS_USR_INFO> SYS_USR_INFO { get; set; }
+        public virtual DbSet<CUST_FEED> CUST_FEED { get; set; }
     }
 }

@@ -166,6 +166,9 @@
     <Compile Include="Models\BKRY_ORDER.cs">
       <DependentUpon>LoginDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CUST_FEED.cs">
+      <DependentUpon>LoginDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetOrderDetail.cs">
       <DependentUpon>LoginDataModel.tt</DependentUpon>
     </Compile>

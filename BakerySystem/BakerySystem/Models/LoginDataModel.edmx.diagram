@@ -13,6 +13,7 @@
         <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.GetOrderDetail" Width="1.5" PointX="6.875" PointY="0.875" />
         <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.BKRY_CREDITCARDINFO" Width="1.5" PointX="6.375" PointY="7.75" />
         <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.SYS_USR_INFO" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="BKRY_MNGT_SYSModel.CUST_FEED" Width="1.5" PointX="8.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

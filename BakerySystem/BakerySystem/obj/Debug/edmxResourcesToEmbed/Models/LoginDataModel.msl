@@ -118,5 +118,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CUST_FEED">
+      <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.CUST_FEED">
+        <MappingFragment StoreEntitySet="CUST_FEED">
+          <ScalarProperty Name="Creation_Id" ColumnName="Creation_Id" />
+          <ScalarProperty Name="Order_id" ColumnName="Order_id" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Feedback_Id" ColumnName="Feedback_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

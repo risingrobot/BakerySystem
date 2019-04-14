@@ -26,6 +26,7 @@
     <EntitySet Name="GetOrderDetails" EntityType="BKRY_MNGT_SYSModel.GetOrderDetail" />
     <EntitySet Name="BKRY_CREDITCARDINFO" EntityType="BKRY_MNGT_SYSModel.BKRY_CREDITCARDINFO" />
     <EntitySet Name="SYS_USR_INFO" EntityType="BKRY_MNGT_SYSModel.SYS_USR_INFO" />
+    <EntitySet Name="CUST_FEED" EntityType="BKRY_MNGT_SYSModel.CUST_FEED" />
   </EntityContainer>
   <EntityType Name="BKRY_CATEGORY">
     <Key>
@@ -118,5 +119,15 @@
     <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="postCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CUST_FEED">
+    <Key>
+      <PropertyRef Name="Feedback_Id" />
+    </Key>
+    <Property Name="Feedback_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_ID" Type="Int32" />
+    <Property Name="feedback" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Order_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Creation_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

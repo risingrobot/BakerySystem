@@ -66,6 +66,16 @@
     <Property Name="inserted_dt" Type="datetime" />
     <Property Name="Delivered" Type="bit" />
   </EntityType>
+  <EntityType Name="CUST_FEED">
+    <Key>
+      <PropertyRef Name="Feedback_Id" />
+    </Key>
+    <Property Name="Feedback_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_ID" Type="int" />
+    <Property Name="feedback" Type="nvarchar" MaxLength="150" />
+    <Property Name="Order_id" Type="nchar" MaxLength="10" />
+    <Property Name="Creation_Id" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="LoginDetails">
     <Key>
       <PropertyRef Name="Id" />
@@ -96,7 +106,7 @@
     <Property Name="postCode" Type="nvarchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERYSYSTEM\BAKERYSYSTEM\APP_DATA\BKRY_MNGT_SYS.MDF.dbo.GetOrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\ADMINISTRATOR\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERYSYSTEM\BAKERYSYSTEM\APP_DATA\BKRY_MNGT_SYS.MDF.dbo.GetOrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="GetOrderDetails">
     <Key>
       <PropertyRef Name="Delivered" />
@@ -117,6 +127,7 @@ warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERY
     <EntitySet Name="BKRY_DELIVERY" EntityType="Self.BKRY_DELIVERY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BKRY_ITEMS" EntityType="Self.BKRY_ITEMS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BKRY_ORDER" EntityType="Self.BKRY_ORDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUST_FEED" EntityType="Self.CUST_FEED" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoginDetails" EntityType="Self.LoginDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GetOrderDetails" EntityType="Self.GetOrderDetails" store:Type="Views" store:Schema="dbo">

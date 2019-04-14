@@ -71,6 +71,16 @@
           <Property Name="inserted_dt" Type="datetime" />
           <Property Name="Delivered" Type="bit" />
         </EntityType>
+        <EntityType Name="CUST_FEED">
+          <Key>
+            <PropertyRef Name="Feedback_Id" />
+          </Key>
+          <Property Name="Feedback_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_ID" Type="int" />
+          <Property Name="feedback" Type="nvarchar" MaxLength="150" />
+          <Property Name="Order_id" Type="nchar" MaxLength="10" />
+          <Property Name="Creation_Id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="LoginDetails">
           <Key>
             <PropertyRef Name="Id" />
@@ -101,7 +111,7 @@
           <Property Name="postCode" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERYSYSTEM\BAKERYSYSTEM\APP_DATA\BKRY_MNGT_SYS.MDF.dbo.GetOrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\ADMINISTRATOR\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERYSYSTEM\BAKERYSYSTEM\APP_DATA\BKRY_MNGT_SYS.MDF.dbo.GetOrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GetOrderDetails">
           <Key>
             
@@ -123,6 +133,7 @@ warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERY
           <EntitySet Name="BKRY_DELIVERY" EntityType="Self.BKRY_DELIVERY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BKRY_ITEMS" EntityType="Self.BKRY_ITEMS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BKRY_ORDER" EntityType="Self.BKRY_ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUST_FEED" EntityType="Self.CUST_FEED" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginDetails" EntityType="Self.LoginDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SYS_USR_INFO" EntityType="Self.SYS_USR_INFO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GetOrderDetails" EntityType="Self.GetOrderDetails" store:Type="Views" store:Schema="dbo">
@@ -169,6 +180,7 @@ warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERY
           <EntitySet Name="GetOrderDetails" EntityType="BKRY_MNGT_SYSModel.GetOrderDetail" />
           <EntitySet Name="BKRY_CREDITCARDINFO" EntityType="BKRY_MNGT_SYSModel.BKRY_CREDITCARDINFO" />
           <EntitySet Name="SYS_USR_INFO" EntityType="BKRY_MNGT_SYSModel.SYS_USR_INFO" />
+          <EntitySet Name="CUST_FEED" EntityType="BKRY_MNGT_SYSModel.CUST_FEED" />
         </EntityContainer>
         <EntityType Name="BKRY_CATEGORY">
           <Key>
@@ -261,6 +273,16 @@ warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERY
           <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="postCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CUST_FEED">
+          <Key>
+            <PropertyRef Name="Feedback_Id" />
+          </Key>
+          <Property Name="Feedback_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="feedback" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Order_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Creation_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -382,6 +404,17 @@ warning 6002: The table/view 'C:\USERS\USER\DOCUMENTS\GITHUB\BAKERYSYSTEM\BAKERY
                 <ScalarProperty Name="UserPassowrd" ColumnName="UserPassowrd" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUST_FEED">
+            <EntityTypeMapping TypeName="BKRY_MNGT_SYSModel.CUST_FEED">
+              <MappingFragment StoreEntitySet="CUST_FEED">
+                <ScalarProperty Name="Creation_Id" ColumnName="Creation_Id" />
+                <ScalarProperty Name="Order_id" ColumnName="Order_id" />
+                <ScalarProperty Name="feedback" ColumnName="feedback" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Feedback_Id" ColumnName="Feedback_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

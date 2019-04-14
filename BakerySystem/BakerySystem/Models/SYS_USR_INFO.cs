@@ -16,7 +16,6 @@ namespace BakerySystem.Models
 
     public partial class SYS_USR_INFO
     {
-       
         public int UserId { get; set; }
         [Required(ErrorMessage = "Please enter name"), MaxLength(30)]
         [Display(Name = "User Name")]
