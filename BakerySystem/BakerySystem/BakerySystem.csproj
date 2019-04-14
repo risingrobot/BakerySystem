@@ -396,10 +396,10 @@
     <Content Include="Views\SignUp\Index.cshtml" />
     <Content Include="Views\SignUp\ShowProfile.cshtml" />
     <Content Include="Views\Checkout\CreditCardInfo.cshtml" />
-    <Content Include="Views\Home\aboutus.cshtml" />
     <Content Include="Views\Home\contactus.cshtml" />
     <Content Include="Views\Shared\Cust_FeedBack.cshtml" />
     <Content Include="Views\Home\Cfeedback.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
